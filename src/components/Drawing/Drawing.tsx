@@ -61,8 +61,11 @@ const Drawing:React.FC = () => {
 
     return (
         <>
-            <div>Drawing</div>
-            <canvas id="canvas" ref={canvasRef} width={220} height={220}/>
+            <div className="text-red-200">Drawing</div>
+            <div className="border-2 border-black rounded-md m-2 ">
+                <canvas className="bg-gray-500" id="canvas" ref={canvasRef} width={300} height={300}/>
+
+            </div>
         </>
     )
 }

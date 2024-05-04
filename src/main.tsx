@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './pages/App.tsx'
 import { BrowserRouter as Router} from 'react-router-dom'
-import './index.css'
+import App from './pages/App.tsx'
+import './tailwind.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
