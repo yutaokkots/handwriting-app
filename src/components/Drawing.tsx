@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import Handwriting from '../../lib/handwriting-class.ts';
+import Handwriting from '../lib/handwriting-class.ts';
 // import styled from "@emotion/styled";
-import { inputOptions } from '../../lib/handwriting-options.ts';
-import SearchList from '../../data/searchlist.json'
+import { inputOptions } from '../lib/handwriting-options.ts';
+import SearchList from '../data/searchlist.json'
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -15,6 +15,7 @@ const Drawing:React.FC = () => {
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
+    const theme = "light"
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -24,18 +25,13 @@ const Drawing:React.FC = () => {
     };
 
     useEffect(() => {
-        // eraseBoard();
-        // // declare new Canvas object
-        // const canvasInstance = new Handwriting.Canvas(
-        //     document.getElementById("handInput"),
-        //     "dark"
-        // )
-        // setCanvas(canvasInstance);
         eraseBoard();
         const canvasElement = document.getElementById('canvas');
         if (canvasElement && canvasElement instanceof HTMLCanvasElement) {
-          const canvasInstance = new Handwriting.Canvas(canvasElement, 'dark');
-          setCanvas(canvasInstance);
+            const canvasInstance = new Handwriting.Canvas(
+                canvasElement, 
+                theme);
+            setCanvas(canvasInstance);
         } else {
           console.error('Canvas element not found or not a canvas element');
         }
@@ -43,14 +39,14 @@ const Drawing:React.FC = () => {
 
     const inputCallback = (result: string[], err: string) => {
         if (err) {
-          return;
-          // console.log(err);
+            return;
+            // console.log(err);
         } else {
-          const kanjiList = SearchList.map((entry) => entry.k);
-          const filtered = result
-            .filter((entry) => kanjiList.includes(entry))
-            .slice(0, 4);
-          setInputSuggestions(filtered);
+            const kanjiList = SearchList.map((entry) => entry.k);
+            const filtered = result
+                .filter((entry) => kanjiList.includes(entry))
+                .slice(0, 4);
+            setInputSuggestions(filtered);
         }
       };
     
@@ -61,9 +57,9 @@ const Drawing:React.FC = () => {
 
     return (
         <>
-            <div className="text-red-200">Drawing</div>
+            <div >Drawing</div>
             <div className="border-2 border-black rounded-md m-2 ">
-                <canvas className="bg-gray-500" id="canvas" ref={canvasRef} width={300} height={300}/>
+                <canvas className=" dark:bg-gray-500 cursor-crosshair stroke-black " id="canvas" ref={canvasRef} width={300} height={300}/>
 
             </div>
         </>

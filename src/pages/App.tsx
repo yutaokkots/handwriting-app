@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 // import './App.css'
-import Drawing from '../components/Drawing/Drawing'
+import Drawing from '../components/Drawing'
+import ThemeToggler from '../components/ThemeToggler'
 
 
-function App() {
+const App:React.FC = () => {
 
   return (
     <>
@@ -17,7 +18,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-
+    <ThemeToggler />
     <Drawing/>
 
     </>
