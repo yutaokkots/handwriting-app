@@ -3,6 +3,7 @@ import Handwriting from '../lib/handwriting-class.ts';
 // import styled from "@emotion/styled";
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
+import { useThemeStore, ThemeState } from "../lib/store.ts";
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -15,7 +16,9 @@ const Drawing:React.FC = () => {
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
-    const theme = "light"
+    const { themeState }:ThemeState = useThemeStore()
+
+    const theme = themeState;
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
 

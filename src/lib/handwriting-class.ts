@@ -17,7 +17,7 @@ class Handwriting {
     obj: unknown;
     trace: Array<Array<Array<number>>> | undefined;
 
-    constructor(obj){
+    constructor(obj: Handwriting | null){
         // Checks if the passed 'obj' is an instance of 'Handwriting'.
         //      If so, returns said obj.
         if (obj instanceof Handwriting) return obj;
@@ -114,7 +114,7 @@ class Handwriting {
         constructor(cvs: HTMLCanvasElement, theme:string){
             this.canvas = cvs;
             this.cxt = cvs.getContext("2d");
-            this.strokeStyle = theme === "dark" ? "#fff" : "#1f1f1f";
+            this.strokeStyle = theme === "dark" ? "#e2e2e2" : "#DC143C"; //1f1f1f
             if (this.cxt) {
                 this.cxt.lineCap = "round";
                 this.cxt.lineJoin = "round";

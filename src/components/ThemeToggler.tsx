@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useThemeStore, ThemeState } from "../lib/store.ts";
+import { themeGetter, themeSetter } from '../utilities/themeSetterGetter.ts';
 
 const ThemeToggler:React.FC = () => {
-    const [theme, setTheme] = useState<"dark" | "light">("light");
-    
+    const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
+
     const toggleTheme = () => {
-        setTheme(theme == "light"? "dark" : "light")
+        const theme = themeState == "light" ? "dark" : "light"
+        themeStateSetter(theme)
+        themeSetter(theme)
     }
 
     useEffect(() => {
-        document.documentElement.className = theme;
-    }, [theme])
+        document.documentElement.className = themeGetter() 
+    }, [themeState])
 
     return (
         <button onClick={toggleTheme}>Dark/Light</button>
