@@ -10,10 +10,12 @@ import { create } from 'zustand'
 * @function themeToggler - switches the theme state between 'dark' and 'light'.
 * @function themeStateSetter - sets the theme state. 
 */
+
 export interface ThemeState {
     themeState: 'dark' | 'light';
     themeStateSetter: (theme:'dark'|'light') => void;
 }
+
 export const useThemeStore = create<ThemeState>((set) => ({
     themeState: 'light',
     themeStateSetter: (theme) => {

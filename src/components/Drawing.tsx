@@ -4,6 +4,7 @@ import Handwriting from '../lib/handwriting-class.ts';
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
 import { useThemeStore, ThemeState } from "../lib/store.ts";
+import { themeGetter } from '../utilities/themeSetterGetter.ts';
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -16,9 +17,7 @@ const Drawing:React.FC = () => {
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
-    const { themeState }: ThemeState = useThemeStore()
-
-    const theme = themeState;
+    const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -29,6 +28,8 @@ const Drawing:React.FC = () => {
 
     useEffect(() => {
         eraseBoard();
+        const theme = themeGetter()
+        themeStateSetter(theme)
         const canvasElement = document.getElementById('canvas');
         if (canvasElement && canvasElement instanceof HTMLCanvasElement) {
             const canvasInstance = new Handwriting.Canvas(
@@ -38,7 +39,6 @@ const Drawing:React.FC = () => {
         } else {
             console.error('Canvas element not found or not a canvas element');
         }
-        console.log(themeState)
     }, [themeState]);
 
     const inputCallback = (result: string[], err: string) => {
@@ -63,8 +63,12 @@ const Drawing:React.FC = () => {
         <>
             <div >Drawing</div>
             <div className="border-2 border-black rounded-md m-2 ">
-                <canvas className=" dark:bg-gray-500 cursor-crosshair stroke-black " id="canvas" ref={canvasRef} width={300} height={300}/>
-
+                <canvas 
+                    className="dark:bg-gray-500 cursor-crosshair stroke-black" 
+                    id="canvas" 
+                    ref={canvasRef} 
+                    width={300} 
+                    height={300}/>
             </div>
         </>
     )
