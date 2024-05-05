@@ -114,7 +114,8 @@ class Handwriting {
         constructor(cvs: HTMLCanvasElement, theme:string){
             this.canvas = cvs;
             this.cxt = cvs.getContext("2d");
-            this.strokeStyle = theme === "dark" ? "#e2e2e2" : "#DC143C"; //1f1f1f
+            this.strokeStyle = theme == "dark" ? "#e2e2e2" : "#1f1f1f"; 
+                    // e2e2e2:light; 1f1f1f:dark 
             if (this.cxt) {
                 this.cxt.lineCap = "round";
                 this.cxt.lineJoin = "round";

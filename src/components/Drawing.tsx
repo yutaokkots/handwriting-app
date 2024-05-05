@@ -16,7 +16,7 @@ const Drawing:React.FC = () => {
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
-    const { themeState }:ThemeState = useThemeStore()
+    const { themeState }: ThemeState = useThemeStore()
 
     const theme = themeState;
 
@@ -33,12 +33,13 @@ const Drawing:React.FC = () => {
         if (canvasElement && canvasElement instanceof HTMLCanvasElement) {
             const canvasInstance = new Handwriting.Canvas(
                 canvasElement, 
-                theme);
+                themeState);
             setCanvas(canvasInstance);
         } else {
-          console.error('Canvas element not found or not a canvas element');
+            console.error('Canvas element not found or not a canvas element');
         }
-    }, []);
+        console.log(themeState)
+    }, [themeState]);
 
     const inputCallback = (result: string[], err: string) => {
         if (err) {

@@ -7,12 +7,14 @@ const ThemeToggler:React.FC = () => {
 
     const toggleTheme = () => {
         const theme = themeState == "light" ? "dark" : "light"
-        themeStateSetter(theme)
-        themeSetter(theme)
+        themeStateSetter(theme);
+        themeSetter(theme);
+        
     }
 
     useEffect(() => {
         document.documentElement.className = themeGetter() 
+        
     }, [themeState])
 
     return (
