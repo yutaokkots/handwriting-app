@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const Recognition = () => {
+const Recognition:React.FC = () => {
+    const { t } = useTranslation('translation');
+
     return (
-        <button></button>
+        <>
+            <div>{t("recognize-button")}</div>
+        </>
     )
 }
 

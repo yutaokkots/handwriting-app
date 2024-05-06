@@ -5,6 +5,7 @@ import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
 import { useThemeStore, ThemeState } from "../lib/store.ts";
 import { themeGetter } from '../utilities/themeSetterGetter.ts';
+import Recognition from "./Buttons/Recognition.tsx";
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -53,10 +54,10 @@ const Drawing:React.FC = () => {
             setInputSuggestions(filtered);
         }
       };
-    
 
     const recognizeChar = () => {
-        canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
+        //canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
+        console.log("recognize char button")
     }
 
     return (
@@ -69,7 +70,13 @@ const Drawing:React.FC = () => {
                     ref={canvasRef} 
                     width={300} 
                     height={300}/>
+                <button 
+                    className="bg-lightindigo dark:bg-lightbeige"
+                    onClick={recognizeChar}>
+                    <Recognition />
+                </button>
             </div>
+            <div className="dark:text-lightbeige bg-darkindigo dark:bg-darkbeige">HELLO</div>
         </>
     )
 }
