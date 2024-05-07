@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Handwriting from '../lib/handwriting-class.ts';
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
+import KanaList from '../data/kanalist.json'
 import { useThemeStore, ThemeState } from "../lib/store.ts";
 import { themeGetter } from '../utilities/themeSetterGetter.ts';
 import { useTranslation } from "react-i18next";
@@ -23,6 +24,7 @@ const Drawing:React.FC = () => {
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
+    const [inputKanaSuggestions, setInputKanaSuggestions] = useState<string[]>([]);
     const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,11 +32,13 @@ const Drawing:React.FC = () => {
     const eraseBoard = () => {
         canvas && canvas.erase()
         setInputSuggestions([]);        
+        setInputKanaSuggestions([]);        
     };
     
     const undoButton = () => {
         canvas && canvas.undo()
         setInputSuggestions([]);        
+        setInputKanaSuggestions([]);        
     }
     
     const handleDraw = () => {
@@ -63,10 +67,15 @@ const Drawing:React.FC = () => {
         } else {
             // selects from characters from 'searchlist.json'
             const kanjiList = SearchList.map((entry) => entry.k);
-            const filtered = result
+            const kanaList = KanaList.map((entry) => entry.kana);
+            const filteredKanji = result
                 .filter((entry) => kanjiList.includes(entry))
                 .slice(0, 4);
-            setInputSuggestions(filtered);
+            const filteredKana = result
+                .filter((entry) => kanaList.includes(entry))
+                .slice(0, 4);
+            setInputSuggestions(filteredKanji);
+            setInputKanaSuggestions(filteredKana);
         }
       };
 
@@ -109,6 +118,7 @@ const Drawing:React.FC = () => {
                         <Recognition />
                     </button>
                     <div>{inputSuggestions}</div>
+                    <div>{inputKanaSuggestions}</div>
                 </div>
             </div>
         </>

@@ -1,0 +1,2474 @@
+[
+    {
+      "kana": "あ",
+      "romaji": "a",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "い",
+      "romaji": "i",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "う",
+      "romaji": "u",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "え",
+      "romaji": "e",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "お",
+      "romaji": "o",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "か",
+      "romaji": "ka",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "き",
+      "romaji": "ki",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "く",
+      "romaji": "ku",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "け",
+      "romaji": "ke",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "こ",
+      "romaji": "ko",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "さ",
+      "romaji": "sa",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "し",
+      "romaji": "shi",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "す",
+      "romaji": "su",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "せ",
+      "romaji": "se",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "そ",
+      "romaji": "so",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "た",
+      "romaji": "ta",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ち",
+      "romaji": "chi",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "つ",
+      "romaji": "tsu",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "て",
+      "romaji": "te",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "と",
+      "romaji": "to",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "な",
+      "romaji": "na",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "に",
+      "romaji": "ni",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ぬ",
+      "romaji": "nu",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ね",
+      "romaji": "ne",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "の",
+      "romaji": "no",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "は",
+      "romaji": "ha",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ひ",
+      "romaji": "hi",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ふ",
+      "romaji": "fu",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "へ",
+      "romaji": "he",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ほ",
+      "romaji": "ho",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ま",
+      "romaji": "ma",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "み",
+      "romaji": "mi",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "む",
+      "romaji": "mu",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "め",
+      "romaji": "me",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "も",
+      "romaji": "mo",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "や",
+      "romaji": "ya",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ゆ",
+      "romaji": "yu",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "よ",
+      "romaji": "yo",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ら",
+      "romaji": "ra",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "り",
+      "romaji": "ri",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "る",
+      "romaji": "ru",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "れ",
+      "romaji": "re",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ろ",
+      "romaji": "ro",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "わ",
+      "romaji": "wa",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ゐ",
+      "romaji": "wi",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ゑ",
+      "romaji": "we",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "を",
+      "romaji": "wo",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "ん",
+      "romaji": "n'",
+      "jaType": "五十音",
+      "enType":"gojuuon"
+    },
+    {
+      "kana": "が",
+      "romaji": "ga",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぎ",
+      "romaji": "gi",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぐ",
+      "romaji": "gu",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "げ",
+      "romaji": "ge",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ご",
+      "romaji": "go",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ざ",
+      "romaji": "za",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "じ",
+      "romaji": "ji",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ず",
+      "romaji": "zu",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぜ",
+      "romaji": "ze",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぞ",
+      "romaji": "zo",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "だ",
+      "romaji": "da",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぢ",
+      "romaji": "ji",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "づ",
+      "romaji": "zu",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "で",
+      "romaji": "de",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ど",
+      "romaji": "do",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ば",
+      "romaji": "ba",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "び",
+      "romaji": "bi",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぶ",
+      "romaji": "bu",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "べ",
+      "romaji": "be",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぼ",
+      "romaji": "bo",
+      "jaType": "濁音",
+      "enType":"dakuon"
+    },
+    {
+      "kana": "ぱ",
+      "romaji": "pa",
+      "jaType": "半濁音",
+      "enType":"handakuon"
+    },
+    {
+      "kana": "ぴ",
+      "romaji": "pi",
+      "jaType": "半濁音",
+      "enType":"handakuon"
+    },
+    {
+      "kana": "ぷ",
+      "romaji": "pu",
+      "jaType": "半濁音",
+      "enType":"handakuon"
+    },
+    {
+      "kana": "ぺ",
+      "romaji": "pe",
+      "jaType": "半濁音",
+      "enType":"handakuon"
+    },
+    {
+      "kana": "ぽ",
+      "romaji": "po",
+      "jaType": "半濁音",
+      "enType":"handakuon"
+    },
+    {
+      "kana": "っ",
+      "romaji": "(pause)",
+      "jaType": "促音",
+      "enType":"sokuon"
+    },
+    {
+      "kana": "きゃ",
+      "romaji": "kya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "きゅ",
+      "romaji": "kyu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "きょ",
+      "romaji": "kyo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "しゃ",
+      "romaji": "sha",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "しゅ",
+      "romaji": "shu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "しょ",
+      "romaji": "sho",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ちゃ",
+      "romaji": "cha",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ちゅ",
+      "romaji": "chu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ちょ",
+      "romaji": "cho",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "にゃ",
+      "romaji": "nya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "にゅ",
+      "romaji": "nyu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "にょ",
+      "romaji": "nyo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ひゃ",
+      "romaji": "hya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ひゅ",
+      "romaji": "hyu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ひょ",
+      "romaji": "hyo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "みゃ",
+      "romaji": "mya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "みゅ",
+      "romaji": "myu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "みょ",
+      "romaji": "myo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "りゃ",
+      "romaji": "rya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "りゅ",
+      "romaji": "ryu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "りょ",
+      "romaji": "ryo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぎゃ",
+      "romaji": "gya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぎゅ",
+      "romaji": "gyu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぎょ",
+      "romaji": "gyo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "じゃ",
+      "romaji": "ja",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "じゅ",
+      "romaji": "ju",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "じょ",
+      "romaji": "jo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "びゃ",
+      "romaji": "bya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "びゅ",
+      "romaji": "byu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "びょ",
+      "romaji": "byo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぴゃ",
+      "romaji": "pya",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぴゅ",
+      "romaji": "pyu",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "ぴょ",
+      "romaji": "pyo",
+      "jaType": "拗音",
+      "enType":"youon"
+    },
+    {
+      "kana": "いぃ",
+      "romaji": "yi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "いぇ",
+      "romaji": "ye",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔぁ",
+      "romaji": "va",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔぃ",
+      "romaji": "vi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔ",
+      "romaji": "vu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔぇ",
+      "romaji": "ve",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔぉ",
+      "romaji": "vo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔゃ",
+      "romaji": "vya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔゅ",
+      "romaji": "vyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゔょ",
+      "romaji": "vyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "しぇ",
+      "romaji": "she",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "じぇ",
+      "romaji": "je",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ちぇ",
+      "romaji": "che",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すぁ",
+      "romaji": "swa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すぃ",
+      "romaji": "swi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すぅ",
+      "romaji": "swu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すぇ",
+      "romaji": "swe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すぉ",
+      "romaji": "swo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すゃ",
+      "romaji": "sya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すゅ",
+      "romaji": "syu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "すょ",
+      "romaji": "syo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "せぃ",
+      "romaji": "si",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずぁ",
+      "romaji": "zwa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずぃ",
+      "romaji": "zwi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずぅ",
+      "romaji": "zwu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずぇ",
+      "romaji": "zwe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずぉ",
+      "romaji": "zwo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずゃ",
+      "romaji": "zya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずゅ",
+      "romaji": "zyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ずょ",
+      "romaji": "zyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ゼぃ",
+      "romaji": "zi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "つぁ",
+      "romaji": "tsa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "つぃ",
+      "romaji": "tsi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "つぇ",
+      "romaji": "tse",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "つぉ",
+      "romaji": "tso",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てぁ",
+      "romaji": "tha",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てぃ",
+      "romaji": "ti",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てぅ",
+      "romaji": "thu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てぇ",
+      "romaji": "tye",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てぉ",
+      "romaji": "tho",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てゃ",
+      "romaji": "tya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てゅ",
+      "romaji": "tyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "てょ",
+      "romaji": "tyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でぁ",
+      "romaji": "dha",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でぃ",
+      "romaji": "di",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でぅ",
+      "romaji": "dhu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でぇ",
+      "romaji": "dye",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でぉ",
+      "romaji": "dho",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でゃ",
+      "romaji": "dya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でゅ",
+      "romaji": "dyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "でょ",
+      "romaji": "dyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "とぁ",
+      "romaji": "twa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "とぃ",
+      "romaji": "twi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "とぅ",
+      "romaji": "tu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "とぇ",
+      "romaji": "twe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "とぉ",
+      "romaji": "two",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "どぁ",
+      "romaji": "dwa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "どぃ",
+      "romaji": "dwi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "どぅ",
+      "romaji": "du",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "どぇ",
+      "romaji": "dwe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "どぉ",
+      "romaji": "dwo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふぁ",
+      "romaji": "fa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふぃ",
+      "romaji": "fi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ほぅ",
+      "romaji": "hu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふぇ",
+      "romaji": "fe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふぉ",
+      "romaji": "fo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふゃ",
+      "romaji": "fya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふゅ",
+      "romaji": "fyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ふょ",
+      "romaji": "fyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "りぃ",
+      "romaji": "ryi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "りぇ",
+      "romaji": "rye",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うぁ",
+      "romaji": "(wa)",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うぃ",
+      "romaji": "wi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うぅ",
+      "romaji": "(wu)",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うぇ",
+      "romaji": "we",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うぉ",
+      "romaji": "wo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うゃ",
+      "romaji": "wya",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うゅ",
+      "romaji": "wyu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "うょ",
+      "romaji": "wyo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "くぁ",
+      "romaji": "kwa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "くぃ",
+      "romaji": "kwi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "くぅ",
+      "romaji": "kwu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "くぇ",
+      "romaji": "kwe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "くぉ",
+      "romaji": "kwo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぐぁ",
+      "romaji": "gwa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぐぃ",
+      "romaji": "gwi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぐぅ",
+      "romaji": "gwu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぐぇ",
+      "romaji": "gwe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぐぉ",
+      "romaji": "gwo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "むぁ",
+      "romaji": "mwa",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "むぃ",
+      "romaji": "mwi",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "むぅ",
+      "romaji": "mwu",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "むぇ",
+      "romaji": "mwe",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "むぉ",
+      "romaji": "mwo",
+      "jaType": "extended",
+      "enType":"extended"
+    },
+    {
+      "kana": "ぁ",
+      "romaji": "a",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ぃ",
+      "romaji": "i",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ぅ",
+      "romaji": "u",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ぇ",
+      "romaji": "e",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ぉ",
+      "romaji": "o",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+        "kana": "ア",
+        "roumaji": "a",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "イ",
+        "roumaji": "i",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ウ",
+        "roumaji": "u",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "エ",
+        "roumaji": "e",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "オ",
+        "roumaji": "o",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "カ",
+        "roumaji": "ka",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "キ",
+        "roumaji": "ki",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ク",
+        "roumaji": "ku",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ケ",
+        "roumaji": "ke",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "コ",
+        "roumaji": "ko",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "サ",
+        "roumaji": "sa",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "シ",
+        "roumaji": "shi",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ス",
+        "roumaji": "su",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "セ",
+        "roumaji": "se",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ソ",
+        "roumaji": "so",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "タ",
+        "roumaji": "ta",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "チ",
+        "roumaji": "chi",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ツ",
+        "roumaji": "tsu",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "テ",
+        "roumaji": "te",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ト",
+        "roumaji": "to",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ナ",
+        "roumaji": "na",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ニ",
+        "roumaji": "ni",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヌ",
+        "roumaji": "nu",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ネ",
+        "roumaji": "ne",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ノ",
+        "roumaji": "no",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ハ",
+        "roumaji": "ha",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヒ",
+        "roumaji": "hi",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "フ",
+        "roumaji": "hu",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヘ",
+        "roumaji": "he",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ホ",
+        "roumaji": "ho",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "マ",
+        "roumaji": "ma",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ミ",
+        "roumaji": "mi",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ム",
+        "roumaji": "mu",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "メ",
+        "roumaji": "me",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "モ",
+        "roumaji": "mo",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヤ",
+        "roumaji": "ya",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ユ",
+        "roumaji": "yu",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヨ",
+        "roumaji": "yo",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ラ",
+        "roumaji": "ra",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "リ",
+        "roumaji": "ri",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ル",
+        "roumaji": "ru",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "レ",
+        "roumaji": "re",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ロ",
+        "roumaji": "ro",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ワ",
+        "roumaji": "wa",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヰ",
+        "romaji": "wi",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヱ",
+        "romaji": "we",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ヲ",
+        "roumaji": "wo",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ン",
+        "roumaji": "n'",
+        "jaType": "五十音",
+        "enType":"gojuuon"
+    },
+    {
+        "kana": "ガ",
+        "roumaji": "ga",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ギ",
+        "roumaji": "gi",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "グ",
+        "roumaji": "gu",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ゲ",
+        "roumaji": "ge",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ゴ",
+        "roumaji": "go",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ザ",
+        "roumaji": "za",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ジ",
+        "roumaji": "ji",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ズ",
+        "roumaji": "zu",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ゼ",
+        "roumaji": "ze",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ゾ",
+        "roumaji": "zo",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ダ",
+        "roumaji": "da",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ヂ",
+        "roumaji": "ji",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ヅ",
+        "roumaji": "zu",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "デ",
+        "roumaji": "de",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ド",
+        "roumaji": "do",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "バ",
+        "roumaji": "ba",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ビ",
+        "roumaji": "bi",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ブ",
+        "roumaji": "bu",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ベ",
+        "roumaji": "be",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "ボ",
+        "roumaji": "bo",
+        "jaType": "濁音",
+        "enType":"dakuon"
+    },
+    {
+        "kana": "パ",
+        "roumaji": "pa",
+        "jaType": "半濁音",
+        "enType":"handakuon"
+    },
+    {
+        "kana": "ピ",
+        "roumaji": "pi",
+        "jaType": "半濁音",
+        "enType":"handakuon"
+    },
+    {
+        "kana": "プ",
+        "roumaji": "pu",
+        "jaType": "半濁音",
+        "enType":"handakuon"
+    },
+    {
+        "kana": "ペ",
+        "roumaji": "pe",
+        "jaType": "半濁音",
+        "enType":"handakuon"
+    },
+    {
+        "kana": "ポ",
+        "roumaji": "po",
+        "jaType": "半濁音",
+        "enType":"handakuon"
+    },
+    {
+        "kana": "ッ",
+        "roumaji": "(pause)",
+        "jaType": "促音",
+        "enType":"sokuon"
+    },
+    {
+        "kana": "キャ",
+        "roumaji": "kya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "キュ",
+        "roumaji": "kyu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "キョ",
+        "roumaji": "kyo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "シャ",
+        "roumaji": "sha",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "シュ",
+        "roumaji": "shu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ショ",
+        "roumaji": "sho",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "チャ",
+        "roumaji": "cha",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "チュ",
+        "roumaji": "chu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "チョ",
+        "roumaji": "cho",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ニャ",
+        "roumaji": "nya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ニュ",
+        "roumaji": "nyu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ニョ",
+        "roumaji": "nyo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ヒャ",
+        "roumaji": "hya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ヒュ",
+        "roumaji": "hyu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ヒョ",
+        "roumaji": "hyo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ミャ",
+        "roumaji": "mya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ミュ",
+        "roumaji": "myu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ミョ",
+        "roumaji": "myo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "リャ",
+        "roumaji": "rya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "リュ",
+        "roumaji": "ryu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "リョ",
+        "roumaji": "ryo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ギャ",
+        "roumaji": "gya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ギュ",
+        "roumaji": "gyu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ギョ",
+        "roumaji": "gyo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ジャ",
+        "roumaji": "ja",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ジュ",
+        "roumaji": "ju",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ジョ",
+        "roumaji": "jo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ビャ",
+        "roumaji": "bya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ビュ",
+        "roumaji": "byu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ビョ",
+        "roumaji": "byo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ピャ",
+        "roumaji": "pya",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ピュ",
+        "roumaji": "pyu",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "ピョ",
+        "roumaji": "pyo",
+        "jaType": "拗音",
+        "enType":"youon"
+    },
+    {
+        "kana": "イィ",
+        "roumaji": "yi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "イェ",
+        "roumaji": "ye",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴァ",
+        "roumaji": "va",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴィ",
+        "roumaji": "vi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴ",
+        "roumaji": "vu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴェ",
+        "roumaji": "ve",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴォ",
+        "roumaji": "vo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴャ",
+        "roumaji": "vya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴュ",
+        "roumaji": "vyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ヴョ",
+        "roumaji": "vyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "シェ",
+        "roumaji": "she",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ジェ",
+        "roumaji": "je",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "チェ",
+        "roumaji": "che",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スァ",
+        "roumaji": "swa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スィ",
+        "roumaji": "swi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スゥ",
+        "roumaji": "swu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スェ",
+        "roumaji": "swe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スォ",
+        "roumaji": "swo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スャ",
+        "roumaji": "sya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スュ",
+        "roumaji": "syu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "スョ",
+        "roumaji": "syo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "セィ",
+        "roumaji": "si",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズァ",
+        "roumaji": "zwa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズィ",
+        "roumaji": "zwi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズゥ",
+        "roumaji": "zwu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズェ",
+        "roumaji": "zwe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズォ",
+        "roumaji": "zwo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズャ",
+        "roumaji": "zya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズュ",
+        "roumaji": "zyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ズョ",
+        "roumaji": "zyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ゼィ",
+        "roumaji": "zi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ツァ",
+        "roumaji": "tsa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ツィ",
+        "roumaji": "tsi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ツェ",
+        "roumaji": "tse",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ツォ",
+        "roumaji": "tso",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テァ",
+        "roumaji": "tha",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ティ",
+        "roumaji": "ti",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テゥ",
+        "roumaji": "thu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テェ",
+        "roumaji": "tye",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テォ",
+        "roumaji": "tho",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テャ",
+        "roumaji": "tya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テュ",
+        "roumaji": "tyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "テョ",
+        "roumaji": "tyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デァ",
+        "roumaji": "dha",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ディ",
+        "roumaji": "di",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デゥ",
+        "roumaji": "dhu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デェ",
+        "roumaji": "dye",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デォ",
+        "roumaji": "dho",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デャ",
+        "roumaji": "dya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デュ",
+        "roumaji": "dyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "デョ",
+        "roumaji": "dyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "トァ",
+        "roumaji": "twa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "トィ",
+        "roumaji": "twi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "トゥ",
+        "roumaji": "tu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "トェ",
+        "roumaji": "twe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "トォ",
+        "roumaji": "two",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ドァ",
+        "roumaji": "dwa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ドィ",
+        "roumaji": "dwi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ドィ",
+        "roumaji": "du",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ドェ",
+        "roumaji": "dwe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ドォ",
+        "roumaji": "dwo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ファ",
+        "roumaji": "fa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フィ",
+        "roumaji": "fi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ホゥ",
+        "roumaji": "hu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フェ",
+        "roumaji": "fe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フォ",
+        "roumaji": "fo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フャ",
+        "roumaji": "fya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フュ",
+        "roumaji": "fyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "フョ",
+        "roumaji": "fyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "リィ",
+        "roumaji": "ryi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "リェ",
+        "roumaji": "rye",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウァ",
+        "roumaji": "(wa)",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウィ",
+        "roumaji": "wi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウゥ",
+        "roumaji": "(wu)",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウェ",
+        "roumaji": "we",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウォ",
+        "roumaji": "wo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウャ",
+        "roumaji": "wya",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウュ",
+        "roumaji": "wyu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ウョ",
+        "roumaji": "wyo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "クァ",
+        "roumaji": "kwa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "クィ",
+        "roumaji": "kwi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "クゥ",
+        "roumaji": "kwu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "クェ",
+        "roumaji": "kwe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "クォ",
+        "roumaji": "kwo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "グァ",
+        "roumaji": "gwa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "グィ",
+        "roumaji": "gwi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "グゥ",
+        "roumaji": "gwu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "グェ",
+        "roumaji": "gwe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "グォ",
+        "roumaji": "gwo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ムァ",
+        "roumaji": "mwa",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ムィ",
+        "roumaji": "mwi",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ムゥ",
+        "roumaji": "mwu",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ムェ",
+        "roumaji": "mwe",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ムォ",
+        "roumaji": "mwo",
+        "jaType": "extended",
+        "enType":"extended"
+    },
+    {
+        "kana": "ァ",
+        "roumaji": "a",
+        "jaType": "捨て仮名",
+        "enType":"sutegana"
+    },
+    {
+        "kana": "ィ",
+        "roumaji": "i",
+        "jaType": "捨て仮名",
+        "enType":"sutegana"
+    },
+    {
+        "kana": "ゥ",
+        "roumaji": "u",
+        "jaType": "捨て仮名",
+        "enType":"sutegana"
+    },
+    {
+        "kana": "ェ",
+        "roumaji": "e",
+        "jaType": "捨て仮名",
+        "enType":"sutegana"
+    },
+    {
+        "kana": "ォ",
+        "roumaji": "o",
+        "jaType": "捨て仮名",
+        "enType":"sutegana"
+    }
+]
