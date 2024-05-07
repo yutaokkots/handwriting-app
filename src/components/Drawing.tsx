@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import Recognition from "./Buttons/Recognition.tsx";
 import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
+import AddButton from "./Buttons/AddButton.tsx";
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -104,10 +105,14 @@ const Drawing:React.FC = () => {
                     </div>
                     <div className="col-span-1">
                         <button 
-                            className="button-light m-2 w-[80px] h-[300px]"
+                            className="button-light m-2 w-[80px] h-[200px]"
                             aria-label={t("recognize-button")}
                             onClick={recognizeChar}>
-                            <Recognition />
+                                <Recognition />
+                        </button>
+                        <button
+                            className="button-light m-2 w-[80px] h-[80px]">
+                                <AddButton />
                         </button>
                     </div>
                 </div>
