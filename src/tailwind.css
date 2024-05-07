@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #faf3e8;
+    --secondary-color: #2e597e;
+    --tertiary-color: #fff;
+    --accent-color-primary: #a1b5c3;
+    --accent-color-secondary: #f1422b;
+    --accent-color-tertiary: #7e4030;
+    --accent-color-dark: #45759f;
+    --accent-color-light: #faebe8;
+  }
+
+
+.light {
+    @apply text-[var(--secondary-color)] bg-[var(--primary-color)];
+  }
+
+.dark {
+    @apply text-[var(--primary-color)] bg-[var(--secondary-color)];
+}
+
+.button-dark {
+    @apply p-2 rounded-lg bg-[var(--accent-color-light)] text-[var(--accent-color-tertiary)]
+}
+
+.button-light {
+    @apply p-2 rounded-lg  bg-[var(--accent-color-tertiary)] text-[var(--accent-color-light)]
+}
+
+@layer utilities{
+    .theme-dark-ext {
+      position: relative;
+      width: 80px; /* Adjust the width as needed */
+      height: 40px; /* Set the height to half of the width */
+      background-color: #efeeee; /* Sky blue color */
+      border-radius: 50px; /* Adjust the value to change the pill shape */
+  } 
+
+.theme-dark-outer {
+    width: 35px;
+    height: 35px;
+    background-color: #4c5255;
+    border-radius: 50%; 
+    position: absolute;
+    right: 2px; /* Position on the left side of the pill container */
+    top: 50%; /* Vertically center the circle */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+}
+.theme-dark-moon {
+    border:2px;
+    border-color:#FFFF00;
+    position: absolute;
+    margin: 0;
+    top: 7px;
+    right: 0;
+    bottom: 0;
+    left: -2px;
+    width: 27px;
+    height: 27px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 6px 10px 0px 0px #fff; 
+}
+}
