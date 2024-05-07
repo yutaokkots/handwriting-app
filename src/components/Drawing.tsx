@@ -61,6 +61,7 @@ const Drawing:React.FC = () => {
             return;
             // console.log(err);
         } else {
+            // selects from characters from 'searchlist.json'
             const kanjiList = SearchList.map((entry) => entry.k);
             const filtered = result
                 .filter((entry) => kanjiList.includes(entry))
@@ -76,13 +77,19 @@ const Drawing:React.FC = () => {
     return (
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2">
-                <canvas 
-                    className="bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black m-2" 
-                    id="canvas" 
-                    onMouseDown={handleDraw}
-                    ref={canvasRef} 
-                    width={300} 
-                    height={300}/>
+                <div className="m-2">
+                    <canvas 
+                                className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
+                                id="canvas" 
+                                onMouseDown={handleDraw}
+                                ref={canvasRef} 
+                                width={300} 
+                                height={300}/>
+                    <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
+                        <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
+                        </div>          
+                    </div>
+                </div>
                 <div>
                     <button 
                         className="button-light m-2"
@@ -101,6 +108,7 @@ const Drawing:React.FC = () => {
                         onClick={recognizeChar}>
                         <Recognition />
                     </button>
+                    <div>{inputSuggestions}</div>
                 </div>
             </div>
         </>
