@@ -8,6 +8,7 @@ const Recognition:React.FC = () => {
     return (
         <>
             <div>{t("recognize-button")}</div>
+            <div className="magnifying-glass"></div>
         </>
     )
 }

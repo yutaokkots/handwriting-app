@@ -25,6 +25,8 @@ const Drawing:React.FC = () => {
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
     const [inputKanaSuggestions, setInputKanaSuggestions] = useState<string[]>([]);
+    const [entry, setEntry] = useState<string[]>([]);
+
     const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -85,18 +87,28 @@ const Drawing:React.FC = () => {
 
     return (
         <>
-            <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2">
-                <div className="m-2">
-                    <canvas 
-                                className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
-                                id="canvas" 
-                                onMouseDown={handleDraw}
-                                ref={canvasRef} 
-                                width={300} 
-                                height={300}/>
-                    <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
-                        <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
-                        </div>          
+            <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
+                <div className="grid grid-cols-4 gap-2">
+                    <div className="m-2 col-span-3">
+                        <canvas 
+                                    className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
+                                    id="canvas" 
+                                    onMouseDown={handleDraw}
+                                    ref={canvasRef} 
+                                    width={300} 
+                                    height={300}/>
+                        <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
+                            <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
+                            </div>          
+                        </div>
+                    </div>
+                    <div className="col-span-1">
+                        <button 
+                            className="button-light m-2 w-[80px] h-[300px]"
+                            aria-label={t("recognize-button")}
+                            onClick={recognizeChar}>
+                            <Recognition />
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -111,12 +123,7 @@ const Drawing:React.FC = () => {
                         onClick={undoButton}>
                         <UndoButton />
                     </button>
-                    <button 
-                        className="button-light m-2"
-                        aria-label={t("recognize-button")}
-                        onClick={recognizeChar}>
-                        <Recognition />
-                    </button>
+
                     <div>{inputSuggestions}</div>
                     <div>{inputKanaSuggestions}</div>
                 </div>
