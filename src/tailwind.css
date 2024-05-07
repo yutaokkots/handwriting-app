@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --primary-color: #faf3e8;
+    --secondary-color: #2e597e;
+    --tertiary-color: #fff;
+    --accent-color-primary: #a1b5c3;
+    --accent-color-secondary: #f1422b;
+    --accent-color-tertiary: #7e4030;
+    --accent-color-dark: #45759f;
+    --accent-color-light: #faebe8;
+  }
+
+
 .light {
-    @apply text-gray-800 bg-white;
+    @apply text-[var(--secondary-color)] bg-[var(--primary-color)];
   }
 
 .dark {
-    @apply text-gray-300 bg-gray-800;
+    @apply text-[var(--primary-color)] bg-[var(--secondary-color)];
+}
+
+.button-dark {
+    @apply p-2 rounded-lg bg-[var(--accent-color-light)] text-[var(--accent-color-tertiary)]
+}
+
+.button-light {
+    @apply p-2 rounded-lg  bg-[var(--accent-color-tertiary)] text-[var(--accent-color-light)]
 }
 
 @layer utilities{

@@ -77,9 +77,7 @@ class Handwriting {
                         callback(undefined, new Error("can't connect to recognition server"));
                         break;
                     }
-                }
-            }
-        });
+        } } });
         xhr.open(
           "POST",
           "https://www.google.com.tw/inputtools/request?ime=handwriting&app=mobilesearch&cs=1&oe=UTF-8"
@@ -90,7 +88,7 @@ class Handwriting {
 
     // Canvas property of Handwriting class
     static Canvas = class{
-        canvas: HTMLCanvasElement;
+        public canvas: HTMLCanvasElement;
         cxt: CanvasRenderingContext2D | null;
         strokeStyle: string;
         // cxt.lineCap: "butt" | "round" | "square";
@@ -131,7 +129,7 @@ class Handwriting {
             this.step = [];
             this.redo_step = [];
             this.redo_trace = [];
-            this.allowUndo = false;
+            this.allowUndo = true;
             this.allowRedo = false;
             cvs.addEventListener("mousedown", this.mouseDown.bind(this));
             cvs.addEventListener("mousemove", this.mouseMove.bind(this));
@@ -206,7 +204,8 @@ class Handwriting {
             w.push([]);
             this.trace.push(w);
             this.drawing = false;
-            if (this.allowUndo) this.step.push(this.canvas.toDataURL());
+            const dataURL = this.canvas.toDataURL()
+            if (this.allowUndo) this.step.push(dataURL);
         };
             
         touchStart = (e:TouchEvent) =>{
@@ -267,16 +266,21 @@ class Handwriting {
                     if (this.cxt){
                         this.cxt.clearRect(0, 0, this.width, this.height);
                     }
+                } else {
+                    console.log(this.step)
+                    if (this.cxt){
+                        this.cxt.clearRect(0, 0, this.width, this.height);
+                    }
                 }
             } else {
                 if (this.allowRedo) {
                     this.redo_step.push(this.step.pop() ?? "");
                     this.redo_trace.push(this.trace.pop() ?? []);
-                } else {
+                } else {     
                     this.step.pop();
                     this.trace.pop();
                 }
-                loadFromUrl(this.step.slice(-1)[0], this);
+                this.loadFromUrl(this.step.slice(-1)[0], this);
             }
         };
             
@@ -284,7 +288,7 @@ class Handwriting {
             if (!this.allowRedo || this.redo_step.length <= 0) return;
             this.step.push(this.redo_step.pop()  ?? "");
             this.trace.push(this.redo_trace.pop()  ?? []);
-            loadFromUrl(this.step.slice(-1)[0], this);
+            this.loadFromUrl(this.step.slice(-1)[0], this);
         };
             
         erase = () => {
@@ -305,19 +309,43 @@ class Handwriting {
             };
             imageObj.src = url;
         }
+
     }
 }
 
 export default Handwriting;
 
-function loadFromUrl(url: string, cvs: CanvasType) {
-    var imageObj = new Image();
-    imageObj.onload = () => {
-        cvs.cxt.clearRect(0, 0, this.width, this.height);
-        cvs.cxt.drawImage(imageObj, 0, 0);
-    };
-    imageObj.src = url;
-}
+// loadFromUrl = (url: string, cvs: HTMLCanvasElement) => {
+//     const imageObj = new Image();
+//     imageObj.onload = () => {
+//         if (cvs){
+//         const cxt = cvs.getContext('2d');
+//         cxt.clearRect(0, 0, this.width, this.height);
+//         cxt.drawImage(imageObj, 0, 0);
+//         }
+//     };
+//     imageObj.src = url;
+// }
+
+// function loadFromUrl(url: string, cvs: CanvasType) {
+//     const imageObj = new Image();
+//     if (cvs){
+//         imageObj.onload = () => {
+//             cvs.cxt.clearRect(0, 0, this.width, this.height);
+//             cvs.cxt.drawImage(imageObj, 0, 0);
+//         };
+//         imageObj.src = url;
+//     }
+// }
+
+// function loadFromUrl(url: string, cvs: CanvasType) {
+//     const imageObj = new Image();
+//     imageObj.onload = () => {
+//         cvs.cxt.clearRect(0, 0, this.width, this.height);
+//         cvs.cxt.drawImage(imageObj, 0, 0);
+//     };
+//     imageObj.src = url;
+// }
 
 
   

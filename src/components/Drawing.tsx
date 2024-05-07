@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Handwriting from '../lib/handwriting-class.ts';
-// import styled from "@emotion/styled";
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
 import { useThemeStore, ThemeState } from "../lib/store.ts";
 import { themeGetter } from '../utilities/themeSetterGetter.ts';
+import { useTranslation } from "react-i18next";
 import Recognition from "./Buttons/Recognition.tsx";
+import ClearButton from "./Buttons/ClearButton.tsx";
+import UndoButton from "./Buttons/UndoButton.tsx";
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -14,6 +16,9 @@ import Recognition from "./Buttons/Recognition.tsx";
 type CanvasType = InstanceType<typeof Handwriting.Canvas>;
 
 const Drawing:React.FC = () => {
+    // useTranslation hook from 'react-i18next'
+    const { t } = useTranslation("translation")
+
     // canvas instance state
     const [canvas, setCanvas] = useState<CanvasType | null>();
     // inputSuggestions for found characters
@@ -26,6 +31,15 @@ const Drawing:React.FC = () => {
         canvas && canvas.erase()
         setInputSuggestions([]);        
     };
+    
+    const undoButton = () => {
+        canvas && canvas.undo()
+        setInputSuggestions([]);        
+    }
+    
+    const handleDraw = () => {
+        // 
+    }
 
     useEffect(() => {
         eraseBoard();
@@ -56,27 +70,39 @@ const Drawing:React.FC = () => {
       };
 
     const recognizeChar = () => {
-        //canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
-        console.log("recognize char button")
+        canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
     }
 
     return (
         <>
-            <div >Drawing</div>
-            <div className="border-2 border-black rounded-md m-2 ">
+            <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2">
                 <canvas 
-                    className="dark:bg-gray-500 cursor-crosshair stroke-black" 
+                    className="bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black m-2" 
                     id="canvas" 
+                    onMouseDown={handleDraw}
                     ref={canvasRef} 
                     width={300} 
                     height={300}/>
-                <button 
-                    className="bg-lightindigo dark:bg-lightbeige"
-                    onClick={recognizeChar}>
-                    <Recognition />
-                </button>
+                <div>
+                    <button 
+                        className="button-light m-2"
+                        aria-label={t("clear-button")}
+                        onClick={eraseBoard}>
+                        <ClearButton />
+                    </button>
+                    <button 
+                        className="button-light m-2"
+                        onClick={undoButton}>
+                        <UndoButton />
+                    </button>
+                    <button 
+                        className="button-light m-2"
+                        aria-label={t("recognize-button")}
+                        onClick={recognizeChar}>
+                        <Recognition />
+                    </button>
+                </div>
             </div>
-            <div className="dark:text-lightbeige bg-darkindigo dark:bg-darkbeige">HELLO</div>
         </>
     )
 }
