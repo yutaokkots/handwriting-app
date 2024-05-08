@@ -9,7 +9,7 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng:"ha",
+        fallbackLng:"ja",
         debug:true,
         ns:["translation"],
         backend: {
