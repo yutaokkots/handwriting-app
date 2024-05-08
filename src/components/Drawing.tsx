@@ -10,6 +10,10 @@ import Recognition from "./Buttons/Recognition.tsx";
 import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
 import AddButton from "./Buttons/AddButton.tsx";
+import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
+
+// const dummyData = ["私","法","上","意","思","表","示","法","律","行","為"]
+// const dummyData2 = ["の","お"]
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -26,6 +30,7 @@ const Drawing:React.FC = () => {
     // inputSuggestions for found characters
     const [inputSuggestions, setInputSuggestions] = useState<string[]>([]);
     const [inputKanaSuggestions, setInputKanaSuggestions] = useState<string[]>([]);
+    
     const [entry, setEntry] = useState<string[]>([]);
 
     const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
@@ -89,34 +94,10 @@ const Drawing:React.FC = () => {
     return (
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
-                <div className="grid grid-cols-4 gap-2">
-                    <div className="m-2 col-span-3">
-                        <canvas 
-                                    className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
-                                    id="canvas" 
-                                    onMouseDown={handleDraw}
-                                    ref={canvasRef} 
-                                    width={300} 
-                                    height={300}/>
-                        <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
-                            <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
-                            </div>          
-                        </div>
-                    </div>
-                    <div className="col-span-1">
-                        <button 
-                            className="button-light m-2 w-[80px] h-[200px]"
-                            aria-label={t("recognize-button")}
-                            onClick={recognizeChar}>
-                                <Recognition />
-                        </button>
-                        <button
-                            className="button-light m-2 w-[80px] h-[80px]">
-                                <AddButton />
-                        </button>
-                    </div>
+                <div className="m-2 text-6xl">
+                    <input className="w-[380px] dark:bg-[--accent-color-dark] p-2"></input>
                 </div>
-                <div>
+                <div className="grid grid-cols-4 gap-2">
                     <button 
                         className="button-light m-2"
                         aria-label={t("clear-button")}
@@ -128,9 +109,42 @@ const Drawing:React.FC = () => {
                         onClick={undoButton}>
                         <UndoButton />
                     </button>
-
-                    <div>{inputSuggestions}</div>
-                    <div>{inputKanaSuggestions}</div>
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                    <div className="m-2 col-span-3">
+                            <canvas 
+                                    className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
+                                    id="canvas" 
+                                    onMouseDown={handleDraw}
+                                    ref={canvasRef} 
+                                    width={300} 
+                                    height={300}/>
+                            <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
+                                <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
+                                </div>          
+                            </div>
+  
+                    </div>
+                    <button 
+                        className="button-light m-2 w-[80px] h-[300px] col-span-1 "
+                        aria-label={t("recognize-button")}
+                        onClick={recognizeChar}>
+                            <Recognition />
+                    </button>
+                </div>
+                <div className="grid grid-cols-4 gap-2 ">
+                    <div className="m-2 col-span-3" >
+                            <div className="grid grid-rows-2 w-[300px] p-1 gap-1">
+                                <div><InputDisplay suggestions={inputSuggestions} name={t("kanji")}/></div>
+                                {/* <div><InputDisplay suggestions={dummyData } name={t("kanji")}/></div>
+                                <div><InputDisplay suggestions={dummyData2 } name={t("kana")}/></div> */}
+                                <div><InputDisplay suggestions={inputKanaSuggestions} name={t("kana")}/></div>
+                            </div>
+                    </div>
+                    <button
+                        className=" button-light m-2 w-[80px] h-[90px] col-span-1 flex justify-center">
+                            <AddButton />
+                    </button>
                 </div>
             </div>
         </>
@@ -139,11 +153,3 @@ const Drawing:React.FC = () => {
 
 export default Drawing
 
-// const Canvas = styled.canvas`
-  // position: relative;
-  // width: 220px;
-  // height: 220px;
-  // border: 1px solid var(--color-light);
-  // border-radius: 4px;
-  // cursor: crosshair;
-// `;

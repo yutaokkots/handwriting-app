@@ -1,5 +1,9 @@
 {
     "recognize-button": "認識",
-    "clear-button": "取り消し",
+    "clear-button": "消去",
+    "add-button": "追加",
+    "undo-button": "取消",
+    "kanji": "漢字",
+    "kana": "仮名",
     "test": "本日は晴天なり"
 }
