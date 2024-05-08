@@ -251,7 +251,7 @@ class Handwriting {
             }
         };
             
-        touchEnd =(e: TouchEvent) => {
+        touchEnd =() => {
             const w = [];
             w.push(this.handwritingX);
             w.push(this.handwritingY);

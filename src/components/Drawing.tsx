@@ -102,11 +102,20 @@ const Drawing:React.FC = () => {
 
     // Adds 'selectedChar' to '' state when selected.
     const addCharacterSelection = () => {
-        canvas && canvas.erase()
-        // eraseBoard()
+        // erase the board
+        // reset the inputKanjiSuggestions state
+        // reset the inputKanaSuggestions state
+        // clear the 'selectedChar' state
+
+        // add the current character that is inside the 'selectedChar' state to 
+        // the 'searchState' global state. 
+
+        //eraseBoard()
         console.log("addCharacterSelection")
         console.log(`${searchState} + ${selectedChar}`)
         searchStateSetter(searchState + selectedChar)
+        canvas && canvas.erase();
+        setSelectedChar("");
     }
 
     // Below function is prop-drilled to inputDisplay to enable 'selectedChar' state change in child. 
@@ -170,12 +179,14 @@ const Drawing:React.FC = () => {
                                     <InputDisplay 
                                         suggestions={inputKanjiSuggestions} 
                                         characterSelection={characterSelection} 
+                                        selectedChar={selectedChar} 
                                         name={t("kanji")}/>
                                 </div>
                                 <div>
                                     <InputDisplay 
                                         suggestions={inputKanaSuggestions} 
                                         characterSelection={characterSelection} 
+                                        selectedChar={selectedChar} 
                                         name={t("kana")}/>
                                 </div>
                             </div>
