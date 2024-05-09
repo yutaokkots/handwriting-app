@@ -110,11 +110,12 @@ const Drawing:React.FC = () => {
         // add the current character that is inside the 'selectedChar' state to 
         // the 'searchState' global state. 
 
-        //eraseBoard()
         console.log("addCharacterSelection")
-        console.log(`${searchState} + ${selectedChar}`)
-        searchStateSetter(searchState + selectedChar)
-        canvas && canvas.erase();
+        
+        searchStateSetter(searchState+selectedChar)
+
+        eraseBoard()
+        //canvas && canvas.erase();
         setSelectedChar("");
     }
 
@@ -123,7 +124,7 @@ const Drawing:React.FC = () => {
         setSelectedChar("");
         setSelectedChar(character)
         console.log(character)
-        console.log(selectedChar)
+        console.log(searchState)
     }
     
     // Calls .recognize() on Canvas instance to send API request for char. recog.
@@ -138,20 +139,20 @@ const Drawing:React.FC = () => {
                     <OutputDisplay />
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <button 
+                    {/* <button 
                         className="button-light m-2"
                         aria-label={t("clear-button")}
                         onClick={eraseBoard}>
                         <ClearButton />
-                    </button>
-                    <button 
+                    </button> */}
+                    {/* <button 
                         className="button-light m-2"
                         onClick={undoButton}>
                         <UndoButton />
-                    </button>
+                    </button> */}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <div className="m-2 col-span-3">
+                    <div className="m-2 col-span-3 relative">
                             <canvas 
                                     className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                                     id="canvas" 
@@ -159,6 +160,12 @@ const Drawing:React.FC = () => {
                                     ref={canvasRef} 
                                     width={300} 
                                     height={300}/>
+                            <button 
+                                className="absolute border-2 rounded-md m-2"
+                                aria-label={t("clear-button")}
+                                onClick={eraseBoard}>
+                                <ClearButton />
+                            </button>
                             <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
                                 <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
                                 </div>          
@@ -166,7 +173,9 @@ const Drawing:React.FC = () => {
   
                     </div>
                     <button 
-                        className="button-light m-2 w-[80px] h-[300px] col-span-1 "
+                        id="recognize"
+                        // disabled={!canvas || canvas.trace.length == 0}
+                        className="button-light m-2 w-[80px] h-[300px] col-span-1 disabled:bg-gray-400"
                         aria-label={t("recognize-button")}
                         onClick={recognizeChar}>
                             <Recognition />
@@ -193,12 +202,22 @@ const Drawing:React.FC = () => {
                     </div>
                     <button
                         onClick={addCharacterSelection}
-                        className=" button-light m-2 w-[80px] h-[90px] col-span-1 flex justify-center">
+                        disabled={selectedChar == ""}
+                        className="button-light m-2 w-[80px] h-[90px] col-span-1 flex justify-center disabled:bg-slate-500">
                             <AddButton />
                     </button>
-                    {selectedChar}
-                    {searchState}
+
                 </div>
+
+                <div className="flex-row">
+                    <div>{inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
+                    <div>{inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
+                    <div>{selectedChar ? "full" : "empty"}</div>
+                    <div>1 {canvas.trace.length == 0 ? "full" : "empty"}</div>
+                    <div>2 {canvas.trace}</div>
+                    <div>3 {canvas.step} </div>
+                </div>
+
             </div>
         </>
     )

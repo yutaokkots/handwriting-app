@@ -34,7 +34,6 @@ class Handwriting {
 
     // Static method for recognizing the character
     static recognize(trace: Array<Array<Array<number>>>, options: HandwritingOptions, callback:InputCallback ){
-        console.log("recognize()")
         const data = JSON.stringify({
             options: "enable_pre_space",
             requests: [
@@ -53,10 +52,8 @@ class Handwriting {
             if (this.readyState === 4) {
                 switch (this.status) {
                     case 200: {
-                        console.log("CASE 200")
                         const response = JSON.parse(this.responseText);
                         let results;
-                        console.log(response)
                         if (response.length === 1) {
                             callback(undefined, new Error(response[0]));
                             break;
@@ -73,12 +70,10 @@ class Handwriting {
                         break;
                     }
                     case 403: {
-                        console.log("CASE 403")
                         callback(undefined, new Error("access denied"));
                         break;
                     }
                     case 503: {
-                        console.log("CASE 503")
                         callback(undefined, new Error("can't connect to recognition server"));
                         break;
                     }
@@ -272,7 +267,6 @@ class Handwriting {
                         this.cxt.clearRect(0, 0, this.width, this.height);
                     }
                 } else {
-                    console.log(this.step)
                     if (this.cxt){
                         this.cxt.clearRect(0, 0, this.width, this.height);
                     }

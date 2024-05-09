@@ -13,10 +13,22 @@ class Searchbar {
         this._wrapped = obj
     }
     static Input = class {
-        
-        constructor(){
+        searchQuery: string[];
 
+        constructor(){
+            this.searchQuery = [];
         }
+
+        addToQuery = (newString:string) => {
+            this.searchQuery.push(newString);
+        }
+
+        removeFromQuery = () => {
+            this.searchQuery && this.searchQuery.pop();
+        }
+
+        
+
     }
 
 }

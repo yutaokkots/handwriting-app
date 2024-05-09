@@ -49,9 +49,8 @@ export const useSearchState = create<SearchState>((set, get) => ({
     searchState: "",
     searchStateSetter: (searchState) => {
         set({
-            suggestionState: searchState
+            searchState: searchState
             //            suggestionState: searchState + get().searchState
-
         })
     }
 }))
