@@ -14,6 +14,7 @@ import AddButton from "./Buttons/AddButton.tsx";
 import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
 import SearchBar from "./ResultDisplay/SearchBar.tsx";
 import DeleteButton from "./Buttons/DeleteButton.tsx";
+import CopyButton from "./Buttons/CopyButton.tsx";
 
 // const dummyData = ["私","法","上","意","思","表","示","法","律","行","為"]
 // const dummyData2 = ["の","お"]
@@ -140,8 +141,15 @@ const Drawing:React.FC = () => {
     return (
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
-                <div className="m-2 text-6xl">
-                    <SearchBar />
+                <div className="grid-cols-4 ">
+                    <div className="relative m-2 col-span-4 h-[80px]">
+                        <div className="absolute text-6xl ">
+                            <SearchBar />
+                        </div>
+                        <button className="absolute m-2 right-0">
+                            <CopyButton />
+                        </button>
+                    </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2">
                     {/* <button 
@@ -157,7 +165,7 @@ const Drawing:React.FC = () => {
                     </button> */}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <div className="m-2 col-span-3 relative w-[300px]">
+                    <div className="relative m-2 col-span-3  w-[300px]">
                         <canvas 
                             className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                             id="canvas" 
@@ -184,37 +192,45 @@ const Drawing:React.FC = () => {
                             </div>          
                         </div>
                     </div>
-                    <div className="m-2 col-span-1 relative">
-                        <button
-                            className="button-light w-[80px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
-                            aria-label={t("delete-button")}
-                            onClick={deleteChar}>
-                                <DeleteButton />
-                        </button>
-                        <div
-                            className="grid grid-cols-2 gap-1">
+                    <div className="m-2 col-span-1">
+
+
+                        <div className="row-span-1 relative h-[190px]">
                             <button
-                                className=" rounded-md w-[35px] h-[110px] flex justify-center items-center bg-amber-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" 
-                                        fill="none" 
-                                        viewBox="0 0 24 24" 
-                                        strokeWidth="1.5" 
-                                        stroke="currentColor" 
-                                        className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                                    </svg>
+                                className="absolute button-light w-[75px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
+                                aria-label={t("delete-button")}
+                                >
+                                    <DeleteButton />
+                            </button>
+                            <div 
+                                className="absolute border-2 border-white w-[75px] h-[145px] top-10"
+                                onClick={deleteChar}>
+                            </div>
+                        </div>
+                            <div className="flex flex-row gap-1">
+                                <button
+                                    className=" rounded-md w-[35px] h-[110px] flex justify-center items-center bg-amber-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" 
+                                            fill="none" 
+                                            viewBox="0 0 24 24" 
+                                            strokeWidth="1.5" 
+                                            stroke="currentColor" 
+                                            className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                <button
+                                    className="bg-amber-600 rounded-md w-[35px] h-[110px] flex justify-center items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" 
+                                            fill="none" 
+                                            viewBox="0 0 24 24" 
+                                            strokeWidth="1.5" 
+                                            stroke="currentColor" 
+                                            className="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                        </svg>
                                 </button>
-                            <button
-                                className="bg-amber-600 rounded-md w-[35px] h-[110px] flex justify-center items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" 
-                                        fill="none" 
-                                        viewBox="0 0 24 24" 
-                                        strokeWidth="1.5" 
-                                        stroke="currentColor" 
-                                        className="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                    </svg>
-                                </button>
+                            </div>
                         </div>
                         {/* <button 
                             id="recognize"
@@ -224,7 +240,7 @@ const Drawing:React.FC = () => {
                             onClick={recognizeChar}>
                                 <Recognition />
                         </button> */}
-                    </div>
+
                 </div>
                 <div className="grid grid-cols-4 gap-2 ">
                     <div className="m-2 col-span-4" >

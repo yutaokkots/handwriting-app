@@ -19,7 +19,7 @@ const SearchBar:React.FC  = () => {
         <input 
             onChange={handleChange}
             type="text"
-            className="w-[380px] dark:bg-[--accent-color-dark] p-2"
+            className="w-[380px] dark:bg-[--accent-color-dark] p-2 rounded-md"
             value={inputValue}>
             
         </input>
