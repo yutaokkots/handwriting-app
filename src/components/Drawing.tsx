@@ -13,6 +13,7 @@ import UndoButton from "./Buttons/UndoButton.tsx";
 import AddButton from "./Buttons/AddButton.tsx";
 import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
 import SearchBar from "./ResultDisplay/SearchBar.tsx";
+import DeleteButton from "./Buttons/DeleteButton.tsx";
 
 // const dummyData = ["私","法","上","意","思","表","示","法","律","行","為"]
 // const dummyData2 = ["の","お"]
@@ -105,7 +106,7 @@ const Drawing:React.FC = () => {
       };
 
     // Adds 'selectedChar' to '' state when selected.
-    const addCharacterSelection = () => {
+    const addCharacterSelection = (pickedChar: string) => {
         // erase the board
         // reset the inputKanjiSuggestions state
         // reset the inputKanaSuggestions state
@@ -114,7 +115,8 @@ const Drawing:React.FC = () => {
         // add the current character that is inside the 'selectedChar' state to 
         // the 'searchState' global state. 
         
-        searchStateSetter(searchState+selectedChar)
+        searchStateSetter(searchState+pickedChar)
+        //searchStateSetter(searchState+selectedChar)
         eraseBoard()
         setSelectedChar("");
     }
@@ -128,6 +130,11 @@ const Drawing:React.FC = () => {
     // Calls .recognize() on Canvas instance to send API request for char. recog.
     const recognizeChar = () => {
         canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
+    }
+
+    // deletes character in input field
+    const deleteChar = () => {
+        console.log("delete")
     }
 
     return (
@@ -150,7 +157,7 @@ const Drawing:React.FC = () => {
                     </button> */}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <div className="m-2 col-span-3 relative w-[250px]">
+                    <div className="m-2 col-span-3 relative w-[300px]">
                         <canvas 
                             className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                             id="canvas" 
@@ -159,8 +166,8 @@ const Drawing:React.FC = () => {
                             onTouchStart={handleDraw}
                             onTouchEnd={recognizeChar}
                             ref={canvasRef} 
-                            width={250} 
-                            height={250}/>
+                            width={300} 
+                            height={300}/>
                         <button 
                             className="absolute border-2 rounded-md m-2"
                             aria-label={t("clear-button")}
@@ -172,30 +179,62 @@ const Drawing:React.FC = () => {
                             onClick={undoButton}>
                             <UndoButton />
                         </button> 
-                        <div className="relative border-l-2 h-[250px] left-[125px]  w-[125px] border-dashed border-gray-400 pointer-events-none ">
-                            <div className="relative w-[250px] top-[125px] left-[-125px]  bt-1  border-b-2 border-gray-400 border-dashed pointer-events-none">
+                        <div className="relative border-l-2 h-[300px] left-[150px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
+                            <div className="relative w-[300px] top-[150px] left-[-150px]  bt-1  border-b-2 border-gray-400 border-dashed pointer-events-none">
                             </div>          
                         </div>
                     </div>
                     <div className="m-2 col-span-1 relative">
-                        <button 
+                        <button
+                            className="button-light w-[80px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
+                            aria-label={t("delete-button")}
+                            onClick={deleteChar}>
+                                <DeleteButton />
+                        </button>
+                        <div
+                            className="grid grid-cols-2 gap-1">
+                            <button
+                                className=" rounded-md w-[35px] h-[110px] flex justify-center items-center bg-amber-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                        fill="none" 
+                                        viewBox="0 0 24 24" 
+                                        strokeWidth="1.5" 
+                                        stroke="currentColor" 
+                                        className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                    </svg>
+                                </button>
+                            <button
+                                className="bg-amber-600 rounded-md w-[35px] h-[110px] flex justify-center items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                        fill="none" 
+                                        viewBox="0 0 24 24" 
+                                        strokeWidth="1.5" 
+                                        stroke="currentColor" 
+                                        className="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </button>
+                        </div>
+                        {/* <button 
                             id="recognize"
                             disabled={canvasEmpty}
                             className="button-light w-[80px] h-[185px] disabled:bg-gray-400"
                             aria-label={t("recognize-button")}
                             onClick={recognizeChar}>
                                 <Recognition />
-                        </button>
+                        </button> */}
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2 ">
-                    <div className="m-2 col-span-3" >
-                            <div className="grid grid-rows-2 w-[300px] p-1 gap-1">
+                    <div className="m-2 col-span-4" >
+                            <div className="grid grid-rows-2 w-[375px] p-1 gap-1">
                                 <div>
                                     <InputDisplay 
                                         suggestions={inputKanjiSuggestions} 
                                         characterSelection={characterSelection} 
                                         selectedChar={selectedChar} 
+                                        addCharacterSelection={addCharacterSelection}
                                         name={t("kanji")}/>
                                 </div>
                                 <div>
@@ -203,16 +242,17 @@ const Drawing:React.FC = () => {
                                         suggestions={inputKanaSuggestions} 
                                         characterSelection={characterSelection} 
                                         selectedChar={selectedChar} 
+                                        addCharacterSelection={addCharacterSelection}
                                         name={t("kana")}/>
                                 </div>
                             </div>
                     </div>
-                    <button
+                    {/* <button
                         onClick={addCharacterSelection}
                         disabled={selectedChar == ""}
                         className="button-light m-2 w-[80px] h-[90px] col-span-1 flex justify-center disabled:bg-slate-500">
                             <AddButton />
-                    </button>
+                    </button> */}
 
                 </div>
 

@@ -1,6 +1,7 @@
 {
     "recognize-button": "Recognize",
     "clear-button": "Clear",
+    "delete-button": "Delete",
     "add-button": "Add",
     "undo-button": "Undo",
     "kanji": "Kanji",

@@ -1,24 +1,26 @@
 import React from 'react'
 
 
-
 interface SuggestionProps{
     suggestions:string[];
     name: string;
     characterSelection: (character:string) => void
     selectedChar: string;
+    addCharacterSelection: (character:string) => void;
 }
 
 interface CharProps {
     displayChar: string;
     characterSelection: (character:string) => void
     selectedChar: string;
+    addCharacterSelection: (character:string) => void;
 }
 
-const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selectedChar }) => {
+const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selectedChar, addCharacterSelection }) => {
     
     const handleEvent = (character:string) => {
-        characterSelection(character)
+        addCharacterSelection(character)
+        //characterSelection(character)
     }
 
     return (
@@ -33,7 +35,7 @@ const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selec
     )
 }
 
-const InputDisplay: React.FC<SuggestionProps> = ({ suggestions, name, characterSelection, selectedChar}) => {
+const InputDisplay: React.FC<SuggestionProps> = ({ suggestions, name, characterSelection, selectedChar, addCharacterSelection}) => {
     return (
         <div className="grid grid-cols-4 border-2 rounded-md p-2 h-[40px] hover:cursor-pointer ">
             <div className="col-span-1">{name}:</div>
@@ -44,6 +46,7 @@ const InputDisplay: React.FC<SuggestionProps> = ({ suggestions, name, characterS
                         displayChar={s} 
                         characterSelection={characterSelection}
                         selectedChar={selectedChar}
+                        addCharacterSelection={addCharacterSelection}
                     />)
                 }
             </div>
