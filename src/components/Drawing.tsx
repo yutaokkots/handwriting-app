@@ -66,7 +66,6 @@ const Drawing:React.FC = () => {
     //
     const handleDraw = () => {
         setCanvasEmpty(false) 
-
     }
 
     useEffect(() => {
@@ -116,7 +115,6 @@ const Drawing:React.FC = () => {
         // the 'searchState' global state. 
         
         searchStateSetter(searchState+selectedChar)
-
         eraseBoard()
         setSelectedChar("");
     }
@@ -125,18 +123,11 @@ const Drawing:React.FC = () => {
     const characterSelection = (character:string) => {
         setSelectedChar("");
         setSelectedChar(character)
-        console.log(character)
-        console.log(searchState)
-    }
-    
-    const checkCanvasEmpty = () => {
-        setCanvasEmpty(canvas && canvas.getEmpty() ?  true : false);
     }
 
     // Calls .recognize() on Canvas instance to send API request for char. recog.
     const recognizeChar = () => {
         canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
-        
     }
 
     return (

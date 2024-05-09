@@ -8,18 +8,16 @@ const SearchBar:React.FC  = () => {
 
     useEffect(() => {
         setInputValue(searchState)
-        console.log(`useEffect: ${searchState}`)
-
-    }, [searchState])
+    }, [inputValue, searchState])
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
-        searchStateSetter(inputValue)
-        console.log("outputDisplay component triggered")
+        searchStateSetter(e.target.value)
     }
+    
     return (
         <input 
-            onInput={handleChange}
+            onChange={handleChange}
             type="text"
             className="w-[380px] dark:bg-[--accent-color-dark] p-2"
             value={inputValue}>
