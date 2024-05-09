@@ -57,11 +57,11 @@ const Drawing:React.FC = () => {
     };
     
     // Calls .undo() method on Canvas instance to backtrack on writing stroke.
-    // const undoButton = () => {
-    //     canvas && canvas.undo()
-    //     setInputKanjiSuggestions([]);        
-    //     setInputKanaSuggestions([]);        
-    // }
+    const undoButton = () => {
+        canvas && canvas.undo()
+        setInputKanjiSuggestions([]);        
+        setInputKanaSuggestions([]);        
+    }
     
     //
     const handleDraw = () => {
@@ -150,35 +150,43 @@ const Drawing:React.FC = () => {
                     </button> */}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    <div className="m-2 col-span-3 relative">
-                            <canvas 
-                                    className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
-                                    id="canvas" 
-                                    onMouseDown={handleDraw}
-                                    onTouchStart={handleDraw}
-                                    ref={canvasRef} 
-                                    width={300} 
-                                    height={300}/>
-                            <button 
-                                className="absolute border-2 rounded-md m-2"
-                                aria-label={t("clear-button")}
-                                onClick={eraseBoard}>
-                                <ClearButton />
-                            </button>
-                            <div className="relative border-l-2 left-[150px] h-[300px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
-                                <div className="relative top-[150px] border-b-2 left-[-150px] w-[300px] bt-1  border-gray-400 border-dashed pointer-events-none">
-                                </div>          
-                            </div>
-  
+                    <div className="m-2 col-span-3 relative w-[250px]">
+                        <canvas 
+                            className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
+                            id="canvas" 
+                            onMouseDown={handleDraw}
+                            onMouseUp={recognizeChar}
+                            onTouchStart={handleDraw}
+                            onTouchEnd={recognizeChar}
+                            ref={canvasRef} 
+                            width={250} 
+                            height={250}/>
+                        <button 
+                            className="absolute border-2 rounded-md m-2"
+                            aria-label={t("clear-button")}
+                            onClick={eraseBoard}>
+                            <ClearButton />
+                        </button>
+                        <button 
+                            className="absolute border-2 rounded-md m-2 right-0"
+                            onClick={undoButton}>
+                            <UndoButton />
+                        </button> 
+                        <div className="relative border-l-2 h-[250px] left-[125px]  w-[125px] border-dashed border-gray-400 pointer-events-none ">
+                            <div className="relative w-[250px] top-[125px] left-[-125px]  bt-1  border-b-2 border-gray-400 border-dashed pointer-events-none">
+                            </div>          
+                        </div>
                     </div>
-                    <button 
-                        id="recognize"
-                        disabled={canvasEmpty}
-                        className="button-light m-2 w-[80px] h-[300px] col-span-1 disabled:bg-gray-400"
-                        aria-label={t("recognize-button")}
-                        onClick={recognizeChar}>
-                            <Recognition />
-                    </button>
+                    <div className="m-2 col-span-1 relative">
+                        <button 
+                            id="recognize"
+                            disabled={canvasEmpty}
+                            className="button-light w-[80px] h-[185px] disabled:bg-gray-400"
+                            aria-label={t("recognize-button")}
+                            onClick={recognizeChar}>
+                                <Recognition />
+                        </button>
+                    </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2 ">
                     <div className="m-2 col-span-3" >

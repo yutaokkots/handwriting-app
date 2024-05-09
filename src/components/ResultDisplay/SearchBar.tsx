@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSearchState , SearchState } from "../../lib/store";
 
 const SearchBar:React.FC  = () => {
@@ -14,7 +14,7 @@ const SearchBar:React.FC  = () => {
         setInputValue(e.target.value)
         searchStateSetter(e.target.value)
     }
-    
+
     return (
         <input 
             onChange={handleChange}
