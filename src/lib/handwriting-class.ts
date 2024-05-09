@@ -300,6 +300,10 @@ class Handwriting {
             this.trace = [];
         };
 
+        getEmpty = () => {
+            return this.step.length == 0
+        }
+
         loadFromUrl = (url: string, cvs: HTMLCanvasElement) => {
             const imageObj = new Image();
             imageObj.onload = () => {
@@ -308,6 +312,8 @@ class Handwriting {
             };
             imageObj.src = url;
         }
+
+        
 
     }
 }

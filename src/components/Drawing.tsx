@@ -12,7 +12,7 @@ import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
 import AddButton from "./Buttons/AddButton.tsx";
 import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
-import OutputDisplay from "./ResultDisplay/OutputDisplay.tsx";
+import SearchBar from "./ResultDisplay/SearchBar.tsx";
 
 // const dummyData = ["私","法","上","意","思","表","示","法","律","行","為"]
 // const dummyData2 = ["の","お"]
@@ -29,6 +29,9 @@ const Drawing:React.FC = () => {
 
     // Handwriting.Canvas canvas instance state is declared.
     const [canvas, setCanvas] = useState<CanvasType | null>();
+
+    // State that keeps track if canvas is empty (true) or contains mousedown (false)
+    const [canvasEmpty, setCanvasEmpty] = useState<boolean>(true);
 
     // Stores 'inputSuggestions' for kana and kanji characters found after API request.
     const [inputKanjiSuggestions, setInputKanjiSuggestions] = useState<string[]>([]);
@@ -49,19 +52,21 @@ const Drawing:React.FC = () => {
     const eraseBoard = () => {
         canvas && canvas.erase()
         setInputKanjiSuggestions([]);        
-        setInputKanaSuggestions([]);        
+        setInputKanaSuggestions([]);       
+        setCanvasEmpty(true) 
     };
     
     // Calls .undo() method on Canvas instance to backtrack on writing stroke.
-    const undoButton = () => {
-        canvas && canvas.undo()
-        setInputKanjiSuggestions([]);        
-        setInputKanaSuggestions([]);        
-    }
+    // const undoButton = () => {
+    //     canvas && canvas.undo()
+    //     setInputKanjiSuggestions([]);        
+    //     setInputKanaSuggestions([]);        
+    // }
     
     //
     const handleDraw = () => {
-        // 
+        setCanvasEmpty(false) 
+
     }
 
     useEffect(() => {
@@ -109,13 +114,10 @@ const Drawing:React.FC = () => {
 
         // add the current character that is inside the 'selectedChar' state to 
         // the 'searchState' global state. 
-
-        console.log("addCharacterSelection")
         
         searchStateSetter(searchState+selectedChar)
 
         eraseBoard()
-        //canvas && canvas.erase();
         setSelectedChar("");
     }
 
@@ -127,16 +129,21 @@ const Drawing:React.FC = () => {
         console.log(searchState)
     }
     
+    const checkCanvasEmpty = () => {
+        setCanvasEmpty(canvas && canvas.getEmpty() ?  true : false);
+    }
+
     // Calls .recognize() on Canvas instance to send API request for char. recog.
     const recognizeChar = () => {
         canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
+        
     }
 
     return (
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
                 <div className="m-2 text-6xl">
-                    <OutputDisplay />
+                    <SearchBar />
                 </div>
                 <div className="grid grid-cols-4 gap-2">
                     {/* <button 
@@ -157,6 +164,7 @@ const Drawing:React.FC = () => {
                                     className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                                     id="canvas" 
                                     onMouseDown={handleDraw}
+                                    onTouchStart={handleDraw}
                                     ref={canvasRef} 
                                     width={300} 
                                     height={300}/>
@@ -174,7 +182,7 @@ const Drawing:React.FC = () => {
                     </div>
                     <button 
                         id="recognize"
-                        // disabled={!canvas || canvas.trace.length == 0}
+                        disabled={canvasEmpty}
                         className="button-light m-2 w-[80px] h-[300px] col-span-1 disabled:bg-gray-400"
                         aria-label={t("recognize-button")}
                         onClick={recognizeChar}>
@@ -210,12 +218,11 @@ const Drawing:React.FC = () => {
                 </div>
 
                 <div className="flex-row">
-                    <div>{inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
-                    <div>{inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
-                    <div>{selectedChar ? "full" : "empty"}</div>
-                    <div>1 {canvas.trace.length == 0 ? "full" : "empty"}</div>
-                    <div>2 {canvas.trace}</div>
-                    <div>3 {canvas.step} </div>
+                    <div>inputKanjiSuggestions is {inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
+                    <div>inputKanaSuggestions is {inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
+                    <div>'selectedChar' is {selectedChar ? "full" : "empty"}: {selectedChar}</div>
+                    <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
+    
                 </div>
 
             </div>
