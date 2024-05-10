@@ -27,13 +27,13 @@ const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, r
 
     return (
         <input
-        id="search-input"
-        onChange={handleChange}
-        type="text"
-        ref={inputRef}
-        className="w-[380px] dark:bg-[--accent-color-dark] p-2 rounded-md"
-        value={inputValue}
-        {...rest}
+            id="search-input"
+            onChange={handleChange}
+            type="text"
+            ref={inputRef}
+            className="w-[380px] dark:bg-[--accent-color-dark] p-2 rounded-md"
+            value={inputValue}
+            {...rest}
         />
     );
 });
