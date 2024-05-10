@@ -194,18 +194,19 @@ const Drawing:React.FC = () => {
                     </div>
                     <div className="m-2 col-span-1">
 
-
                         <div className="row-span-1 relative h-[190px]">
                             <button
+                                onClick={deleteChar}
+                                onTouchStart={deleteChar}
                                 className="absolute button-light w-[75px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
                                 aria-label={t("delete-button")}
                                 >
                                     <DeleteButton />
                             </button>
                             <div 
-                                className="absolute border-2 border-white w-[75px] h-[145px] top-10"
-                                onClick={deleteChar}>
+                                className="content-none after:absolute  after:w-[30px] after:h-[80px] after:rounded-br-full" >
                             </div>
+
                         </div>
                             <div className="flex flex-row gap-1">
                                 <button
@@ -227,7 +228,7 @@ const Drawing:React.FC = () => {
                                             strokeWidth="1.5" 
                                             stroke="currentColor" 
                                             className="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                         </svg>
                                 </button>
                             </div>
@@ -279,6 +280,8 @@ const Drawing:React.FC = () => {
                     <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
     
                 </div>
+
+
 
             </div>
         </>
