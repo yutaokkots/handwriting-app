@@ -37,31 +37,35 @@
       height: 40px; /* Set the height to half of the width */
       background-color: #efeeee; /* Sky blue color */
       border-radius: 50px; /* Adjust the value to change the pill shape */
-  } 
+    } 
 
-.theme-dark-outer {
-    width: 35px;
-    height: 35px;
-    background-color: #4c5255;
-    border-radius: 50%; 
-    position: absolute;
-    right: 2px; /* Position on the left side of the pill container */
-    top: 50%; /* Vertically center the circle */
-    transform: translateY(-50%); /* Adjust vertical alignment */
-}
-.theme-dark-moon {
-    border:2px;
-    border-color:#FFFF00;
-    position: absolute;
-    margin: 0;
-    top: 7px;
-    right: 0;
-    bottom: 0;
-    left: -2px;
-    width: 27px;
-    height: 27px;
-    background-color: transparent;
-    border-radius: 50%;
-    box-shadow: 6px 10px 0px 0px #fff; 
-}
+    .theme-dark-outer {
+        width: 35px;
+        height: 35px;
+        background-color: #4c5255;
+        border-radius: 50%; 
+        position: absolute;
+        right: 2px; /* Position on the left side of the pill container */
+        top: 50%; /* Vertically center the circle */
+        transform: translateY(-50%); /* Adjust vertical alignment */
+    }
+    .theme-dark-moon {
+        border:2px;
+        border-color:#FFFF00;
+        position: absolute;
+        margin: 0;
+        top: 7px;
+        right: 0;
+        bottom: 0;
+        left: -2px;
+        width: 27px;
+        height: 27px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 6px 10px 0px 0px #fff; 
+    }
+
+    .scrollbar::-webkit-scrollbar {
+        height:15px;
+    }
 }

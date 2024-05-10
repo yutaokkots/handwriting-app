@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // import './App.css'
 import Drawing from '../components/Drawing'
-import ThemeToggler from '../components/Toggler/ThemeToggler'
 import NavBar from '../components/NavBar/NavBar'
 
+
+
 const App:React.FC = () => {
-    return (
-        <>
-            <NavBar />
-            <Drawing/>
-        </>
-    )
+    const [ windowSize, setWindowSize ] = useState<{width: number; height: NavigatorConcurrentHardwareumber;}>({
+        width: window.innerWidth,
+        height : window.innerHeight
+    })
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+                height : window.innerHeight
+            })
+        }
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
+
+    return (  
+            <>
+                <NavBar />
+                <div>{windowSize.width} x {windowSize.height}</div>
+                <Drawing/>
+            </>
+            )
 }
 
 export default App

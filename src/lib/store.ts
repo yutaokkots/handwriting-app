@@ -24,3 +24,33 @@ export const useThemeStore = create<ThemeState>((set) => ({
         })
     } 
 }))
+
+/** 
+* State for the dark/light theme for the site.
+* @state {'dark'|'light'|null} themeState - represents the strings, 'dark' or 'light'.
+* @function themeToggler - switches the theme state between 'dark' and 'light'.
+* @function themeStateSetter - sets the theme state. 
+*/
+
+export interface SearchState {
+    suggestionState: string;
+    suggestionStateSetter: (suggested:string) => void;
+    searchState: string;
+    searchStateSetter: (prompt:string) => void;
+}
+
+export const useSearchState = create<SearchState>((set, get) => ({
+    suggestionState: "",
+    suggestionStateSetter: (suggest) => {
+            set({
+                suggestionState: suggest
+            })
+        },
+    searchState: "",
+    searchStateSetter: (searchState) => {
+        set({
+            searchState: searchState
+            //            suggestionState: searchState + get().searchState
+        })
+    }
+}))
