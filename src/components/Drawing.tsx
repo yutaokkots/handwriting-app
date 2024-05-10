@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, RefObject} from "react";
 import Handwriting from '../lib/handwriting-class.ts';
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
@@ -7,17 +7,13 @@ import { useThemeStore, ThemeState } from "../lib/store.ts";
 import { useSearchState , SearchState } from "../lib/store.ts";
 import { themeGetter } from '../utilities/themeSetterGetter.ts';
 import { useTranslation } from "react-i18next";
-import Recognition from "./Buttons/Recognition.tsx";
 import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
-import AddButton from "./Buttons/AddButton.tsx";
 import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
-import SearchBar from "./ResultDisplay/SearchBar.tsx";
 import DeleteButton from "./Buttons/DeleteButton.tsx";
-import CopyButton from "./Buttons/CopyButton.tsx";
-
-// const dummyData = ["私","法","上","意","思","表","示","法","律","行","為"]
-// const dummyData2 = ["の","お"]
+import FieldBackButton from "./Buttons/FieldBackButton.tsx";
+import FieldForwardButton from "./Buttons/FieldForwardButton.tsx";
+import SearchInput from "./ResultDisplay/SearchInput.tsx";
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -48,7 +44,11 @@ const Drawing:React.FC = () => {
     // Stores 'dark' or 'light' for quick switch between dark/light mode. 
     const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
 
-    const canvasRef = useRef<HTMLCanvasElement>(null);    
+    const canvasRef = useRef<HTMLCanvasElement>(null);  
+    
+    // const inputRef = useRef<HTMLInputElement>(null);
+
+    const inputRef = useRef<HTMLInputElement | null>(null);
     
     // Calls .erase() method on Canvas instance and resets input arrays
     const eraseBoard = () => {
@@ -72,8 +72,10 @@ const Drawing:React.FC = () => {
 
     useEffect(() => {
         eraseBoard();
+        // Initializes theme.
         const theme = themeGetter()
         themeStateSetter(theme)
+        // Initializes canvas element.
         const canvasElement = document.getElementById('canvas');
         if (canvasElement && canvasElement instanceof HTMLCanvasElement) {
             const canvasInstance = new Handwriting.Canvas(
@@ -83,6 +85,9 @@ const Drawing:React.FC = () => {
         } else {
             console.error('Canvas element not found or not a canvas element');
         }
+        // Initializes search bar
+        inputRef.current = document.getElementById("search-input") as HTMLInputElement;
+
     }, [themeState]);
 
     // The function to search local db for matching characters.
@@ -108,16 +113,7 @@ const Drawing:React.FC = () => {
 
     // Adds 'selectedChar' to '' state when selected.
     const addCharacterSelection = (pickedChar: string) => {
-        // erase the board
-        // reset the inputKanjiSuggestions state
-        // reset the inputKanaSuggestions state
-        // clear the 'selectedChar' state
-
-        // add the current character that is inside the 'selectedChar' state to 
-        // the 'searchState' global state. 
-        
         searchStateSetter(searchState+pickedChar)
-        //searchStateSetter(searchState+selectedChar)
         eraseBoard()
         setSelectedChar("");
     }
@@ -135,7 +131,10 @@ const Drawing:React.FC = () => {
 
     // deletes character in input field
     const deleteChar = () => {
-        console.log("delete")
+        if (searchState){
+            const str = searchState.slice(0, -1)
+            searchStateSetter(str)
+        }
     }
 
     return (
@@ -143,26 +142,11 @@ const Drawing:React.FC = () => {
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
                 <div className="grid-cols-4 ">
                     <div className="relative m-2 col-span-4 h-[80px]">
-                        <div className="absolute text-6xl ">
-                            <SearchBar />
-                        </div>
-                        <button className="absolute m-2 right-0">
-                            <CopyButton />
-                        </button>
+                        <SearchInput inputRef={inputRef}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2">
-                    {/* <button 
-                        className="button-light m-2"
-                        aria-label={t("clear-button")}
-                        onClick={eraseBoard}>
-                        <ClearButton />
-                    </button> */}
-                    {/* <button 
-                        className="button-light m-2"
-                        onClick={undoButton}>
-                        <UndoButton />
-                    </button> */}
+
                 </div>
                 <div className="grid grid-cols-4 gap-2">
                     <div className="relative m-2 col-span-3  w-[300px]">
@@ -198,6 +182,7 @@ const Drawing:React.FC = () => {
                             <button
                                 onClick={deleteChar}
                                 onTouchStart={deleteChar}
+                                disabled={searchState == ""}
                                 className="absolute button-light w-[75px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
                                 aria-label={t("delete-button")}
                                 >
@@ -209,38 +194,10 @@ const Drawing:React.FC = () => {
 
                         </div>
                             <div className="flex flex-row gap-1">
-                                <button
-                                    className=" rounded-md w-[35px] h-[110px] flex justify-center items-center bg-amber-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" 
-                                            fill="none" 
-                                            viewBox="0 0 24 24" 
-                                            strokeWidth="1.5" 
-                                            stroke="currentColor" 
-                                            className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                                        </svg>
-                                    </button>
-                                <button
-                                    className="bg-amber-600 rounded-md w-[35px] h-[110px] flex justify-center items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" 
-                                            fill="none" 
-                                            viewBox="0 0 24 24" 
-                                            strokeWidth="1.5" 
-                                            stroke="currentColor" 
-                                            className="w-6 h-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                </button>
+                                <FieldBackButton />
+                                <FieldForwardButton />
                             </div>
                         </div>
-                        {/* <button 
-                            id="recognize"
-                            disabled={canvasEmpty}
-                            className="button-light w-[80px] h-[185px] disabled:bg-gray-400"
-                            aria-label={t("recognize-button")}
-                            onClick={recognizeChar}>
-                                <Recognition />
-                        </button> */}
 
                 </div>
                 <div className="grid grid-cols-4 gap-2 ">
@@ -264,13 +221,6 @@ const Drawing:React.FC = () => {
                                 </div>
                             </div>
                     </div>
-                    {/* <button
-                        onClick={addCharacterSelection}
-                        disabled={selectedChar == ""}
-                        className="button-light m-2 w-[80px] h-[90px] col-span-1 flex justify-center disabled:bg-slate-500">
-                            <AddButton />
-                    </button> */}
-
                 </div>
 
                 <div className="flex-row">
@@ -278,10 +228,7 @@ const Drawing:React.FC = () => {
                     <div>inputKanaSuggestions is {inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
                     <div>'selectedChar' is {selectedChar ? "full" : "empty"}: {selectedChar}</div>
                     <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
-    
                 </div>
-
-
 
             </div>
         </>
