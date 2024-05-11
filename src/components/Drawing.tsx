@@ -9,10 +9,6 @@ import { themeGetter } from '../utilities/themeSetterGetter.ts';
 import { useTranslation } from "react-i18next";
 import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
-import InputDisplay from "./ResultDisplay/InputDisplay.tsx";
-import DeleteButton from "./Buttons/DeleteButton.tsx";
-import FieldBackButton from "./Buttons/FieldBackButton.tsx";
-import FieldForwardButton from "./Buttons/FieldForwardButton.tsx";
 import SearchInput from "./ResultDisplay/SearchInput.tsx";
 import InputDisplayVertical from "./ResultDisplay/InputDisplayVertical.tsx";
 import labels from '../lib/labels.ts'
@@ -145,6 +141,11 @@ const Drawing:React.FC = () => {
         }
     }
 
+    // deletes the input field
+    const deleteInputField = () => {
+        searchStateSetter("")
+    }
+
     return (
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
@@ -183,13 +184,15 @@ const Drawing:React.FC = () => {
                             width={260} 
                             height={260}/>
                         <button 
-                            className="absolute border-2 rounded-md m-2"
+                            className="absolute border-2 rounded-md m-2 disabled:opacity-30"
                             aria-label={t("clear-button")}
+                            disabled={canvasEmpty}
                             onClick={eraseBoard}>
                             <ClearButton />
                         </button>
                         <button 
-                            className="absolute border-2 rounded-md m-2 right-0"
+                            className="absolute border-2 rounded-md m-2 right-0 disabled:opacity-30"
+                            disabled={canvasEmpty}
                             onClick={undoButton}>
                             <UndoButton />
                         </button> 
@@ -200,52 +203,20 @@ const Drawing:React.FC = () => {
                     </div>
                     <div className="m-1  col-span-2  ">
                         <div className="row-span-1 relative h-[150px] ">
-                            {/* <button
-                                onClick={deleteChar}
-                                disabled={searchState == ""}
-                                className="absolute button-light w-[50px] h-[40px] mb-1 disabled:bg-gray-400 row-span-2"
-                                aria-label={t("delete-button")}
-                                >
-                                    <DeleteButton />
-                            </button> */}
-    
-                            {/* <div 
-                                className="after:bg-white content-none after:absolute  after:w-[30px] after:h-[80px] after:rounded-br-full" >
-                            </div> */}
-
                         </div>
     
-                        </div>
-
-                </div>
-                <div className="grid grid-cols-12 m-2 gap-1">
-                    <InputDisplayController deleteChar={deleteChar}/>
-                </div>
-                {/* <div className="grid grid-cols-4 gap-2 ">
-                    <div className="m-2 col-span-4" >
-                            <div className="grid grid-rows-2 w-[375px] p-1 gap-1">
-                                <div>
-                                    <InputDisplay 
-                                        suggestions={inputKanjiSuggestions} 
-                                        
-                                        characterSelection={characterSelection} 
-                                        selectedChar={selectedChar} 
-                                        addCharacterSelection={addCharacterSelection}
-                                        name={t("kanji")}/>
-                                </div>
-                                <div>
-                                    <InputDisplay 
-                                        suggestions={inputKanaSuggestions} 
-                                        characterSelection={characterSelection} 
-                                        selectedChar={selectedChar} 
-                                        addCharacterSelection={addCharacterSelection}
-                                        name={t("kana")}/>
-                                </div>
-                            </div>
                     </div>
-                </div> */}
 
-
+                </div>
+                <div 
+                    className="grid grid-cols-12 m-2 gap-1"
+                    >
+                    <InputDisplayController 
+                        deleteChar={deleteChar} 
+                        inputRef={inputRef}
+                        deleteInputField={deleteInputField}/>
+                </div>
+            
             </div>
 
                 <div className="flex-row">
