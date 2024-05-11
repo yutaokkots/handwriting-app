@@ -16,6 +16,7 @@ import FieldForwardButton from "./Buttons/FieldForwardButton.tsx";
 import SearchInput from "./ResultDisplay/SearchInput.tsx";
 import InputDisplayVertical from "./ResultDisplay/InputDisplayVertical.tsx";
 import labels from '../lib/labels.ts'
+import InputDisplayController from "./ResultDisplay/InputDisplayController.tsx";
 
 // test
 
@@ -213,12 +214,12 @@ const Drawing:React.FC = () => {
                             </div> */}
 
                         </div>
-                            <div className="flex flex-row gap-1">
-                                <FieldBackButton />
-                                <FieldForwardButton />
-                            </div>
+    
                         </div>
 
+                </div>
+                <div className="grid grid-cols-12 m-2 gap-1">
+                    <InputDisplayController deleteChar={deleteChar}/>
                 </div>
                 {/* <div className="grid grid-cols-4 gap-2 ">
                     <div className="m-2 col-span-4" >
@@ -244,21 +245,15 @@ const Drawing:React.FC = () => {
                     </div>
                 </div> */}
 
+
+            </div>
+
                 <div className="flex-row">
                     <div>inputKanjiSuggestions is {inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
                     <div>inputKanaSuggestions is {inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
                     <div>'selectedChar' is {selectedChar ? "full" : "empty"}: {selectedChar}</div>
                     <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
                 </div>
-
-            </div>
-            <div
-                className="p-2 text-black "
-                    style={{
-                        writingMode: 'vertical-rl',
-                        textOrientation: 'mixed',
-                    }}
-            >煕煕</div>
 
         </>
     )

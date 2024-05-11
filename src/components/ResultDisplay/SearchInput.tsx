@@ -2,6 +2,7 @@ import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'rea
 import { useSearchState, SearchState } from '../../lib/store';
 import { useTranslation } from "react-i18next";
 import DeleteButton from '../Buttons/DeleteButton';
+import SearchButton from '../Buttons/SearchButton';
 
 
 // Search Bar
@@ -93,10 +94,9 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
     }
 
     // deletes a character in input field
-    const deleteChar = () => {
+    const handleSearch = () => {
         if (searchState){
-            const str = searchState.slice(0, -1)
-            searchStateSetter(str)
+
         }
     }
 
@@ -114,15 +114,15 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
                 className="absolute m-2 right-0">
                 <CopyButton copied={copied}/>
             </button>
-            {!searchState == "" &&
+            {!(searchState == "") &&
                 <button
-                onClick={ deleteChar }
+                onClick={ handleSearch }
                 disabled={searchState == ""}
                 className="absolute mb-1 mr-2 right-0 bottom-0 "
                 aria-label={t("delete-button")}
                 >
-                    <DeleteButton />
-            </button>
+                    <SearchButton />
+                </button>
             }
         </>
     );
