@@ -3,7 +3,7 @@ import React from 'react'
 const FieldBackButton:React.FC = () => {
     return (
         <button
-            className=" rounded-md w-[35px] h-[110px] flex justify-center items-center bg-amber-600">
+            className=" rounded-md w-[25px] h-[110px] flex justify-center items-center bg-amber-600">
             <svg xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
                 viewBox="0 0 24 24" 

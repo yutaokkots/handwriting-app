@@ -66,6 +66,6 @@
     }
 
     .scrollbar::-webkit-scrollbar {
-        height:15px;
+        width:1px;
     }
 }

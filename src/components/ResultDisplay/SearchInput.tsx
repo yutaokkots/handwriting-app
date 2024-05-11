@@ -14,9 +14,9 @@ const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, r
     useEffect(() => {
         setInputValue(searchState);
         if (inputRef && inputRef.current) {
-        inputRef.current.focus();
-        const newPosition = inputRef.current.value.length;
-        inputRef.current.setSelectionRange(newPosition, newPosition);
+            inputRef.current.focus();
+            const newPosition = inputRef.current.value.length;
+            inputRef.current.setSelectionRange(newPosition, newPosition);
         }
     }, [inputValue, searchState]);
 
@@ -78,7 +78,12 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
         if (inputRef && searchState){
             navigator.clipboard.writeText(inputRef?.current.value)
             setCopied(true)
-            setTimeout(setCopiedStatus, 600)
+            setTimeout(setCopiedStatus, 900)
+            if (inputRef.current) {
+                inputRef.current.focus();
+                const newPosition = inputRef.current.value.length;
+                inputRef.current.setSelectionRange(0, newPosition);
+            }
         }
     }
 

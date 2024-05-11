@@ -3,7 +3,7 @@ import React from 'react'
 const FieldForwardButton:React.FC = () => {
     return (
         <button
-            className="bg-amber-600 rounded-md w-[35px] h-[110px] flex justify-center items-center">
+            className="bg-amber-600 rounded-md w-[25px] h-[110px] flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                     fill="none" 
                     viewBox="0 0 24 24" 

@@ -14,6 +14,12 @@ import DeleteButton from "./Buttons/DeleteButton.tsx";
 import FieldBackButton from "./Buttons/FieldBackButton.tsx";
 import FieldForwardButton from "./Buttons/FieldForwardButton.tsx";
 import SearchInput from "./ResultDisplay/SearchInput.tsx";
+import InputDisplayVertical from "./ResultDisplay/InputDisplayVertical.tsx";
+import labels from '../lib/labels.ts'
+
+// test
+
+const inputKanjiSuggestion = ["な","ご","や","か","に","喜","び","合","い","楽","し","む","さ","ま"]
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -35,6 +41,8 @@ const Drawing:React.FC = () => {
     const [inputKanjiSuggestions, setInputKanjiSuggestions] = useState<string[]>([]);
     const [inputKanaSuggestions, setInputKanaSuggestions] = useState<string[]>([]);
 
+    const [inputAllSuggestions, setInputAllSuggestions] = useState<string[]>([]);
+
     // Once user clicks on a character, it is temporarily stored in 'selectedChar'.
     const [selectedChar, setSelectedChar] = useState<string>("");
 
@@ -46,8 +54,6 @@ const Drawing:React.FC = () => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);  
     
-    // const inputRef = useRef<HTMLInputElement>(null);
-
     const inputRef = useRef<HTMLInputElement | null>(null);
     
     // Calls .erase() method on Canvas instance and resets input arrays
@@ -55,6 +61,7 @@ const Drawing:React.FC = () => {
         canvas && canvas.erase()
         setInputKanjiSuggestions([]);        
         setInputKanaSuggestions([]);       
+        //setInputAllSuggestions([]);       
         setCanvasEmpty(true) 
     };
     
@@ -108,6 +115,7 @@ const Drawing:React.FC = () => {
             // after finding and filtering, displays found characters on screen.
             setInputKanjiSuggestions(filteredKanji);
             setInputKanaSuggestions(filteredKana);
+            setInputAllSuggestions(filteredKana.concat(filteredKanji))
         }
       };
 
@@ -129,7 +137,7 @@ const Drawing:React.FC = () => {
         canvas && canvas.recognize(canvas.trace, inputOptions, inputCallback)
     }
 
-    // deletes character in input field
+    // deletes a character in input field
     const deleteChar = () => {
         if (searchState){
             const str = searchState.slice(0, -1)
@@ -145,11 +153,25 @@ const Drawing:React.FC = () => {
                         <SearchInput inputRef={inputRef}/>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-2">
 
-                </div>
-                <div className="grid grid-cols-4 gap-2">
-                    <div className="relative m-2 col-span-3  w-[300px]">
+                <div className="grid grid-cols-12 gap-2">
+                    <div className="m-1 ml-2 col-span-2 bg-white bg-opacity-20 rounded-lg w-[58px] h-[260px]">
+                        <div className="grid grid-cols-2">
+                            <InputDisplayVertical 
+                                suggestions={inputKanjiSuggestions}                                      
+                                characterSelection={characterSelection} 
+                                selectedChar={selectedChar} 
+                                addCharacterSelection={addCharacterSelection}
+                                name={labels.kanji}/> 
+                            <InputDisplayVertical 
+                                suggestions={inputKanaSuggestions}                                      
+                                characterSelection={characterSelection} 
+                                selectedChar={selectedChar} 
+                                addCharacterSelection={addCharacterSelection}
+                                name={labels.kana}/> 
+                        </div>
+                    </div>
+                    <div className="relative m-1 col-span-8 w-[260px]">
                         <canvas 
                             className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                             id="canvas" 
@@ -158,8 +180,8 @@ const Drawing:React.FC = () => {
                             onTouchStart={handleDraw}
                             onTouchEnd={recognizeChar}
                             ref={canvasRef} 
-                            width={300} 
-                            height={300}/>
+                            width={260} 
+                            height={260}/>
                         <button 
                             className="absolute border-2 rounded-md m-2"
                             aria-label={t("clear-button")}
@@ -171,26 +193,24 @@ const Drawing:React.FC = () => {
                             onClick={undoButton}>
                             <UndoButton />
                         </button> 
-                        <div className="relative border-l-2 h-[300px] left-[150px] w-[150px] border-dashed border-gray-400 pointer-events-none ">
-                            <div className="relative w-[300px] top-[150px] left-[-150px]  bt-1  border-b-2 border-gray-400 border-dashed pointer-events-none">
+                        <div className="relative border-l-2 h-[260px] left-[130px] w-[130px] border-dashed border-gray-400 pointer-events-none ">
+                            <div className="relative w-[260px] top-[130px] left-[-130px]  bt-1  border-b-2 border-gray-400 border-dashed pointer-events-none">
                             </div>          
                         </div>
                     </div>
-                    <div className="m-2 col-span-1">
-
-                        <div className="row-span-1 relative h-[190px]">
+                    <div className="m-1  col-span-2  ">
+                        <div className="row-span-1 relative h-[150px] ">
                             <button
                                 onClick={deleteChar}
-                                onTouchStart={deleteChar}
                                 disabled={searchState == ""}
-                                className="absolute button-light w-[75px] h-[185px] mb-1 disabled:bg-gray-400 row-span-2"
+                                className="absolute button-light w-[50px] h-[145px] mb-1 disabled:bg-gray-400 row-span-2"
                                 aria-label={t("delete-button")}
                                 >
                                     <DeleteButton />
                             </button>
-                            <div 
-                                className="content-none after:absolute  after:w-[30px] after:h-[80px] after:rounded-br-full" >
-                            </div>
+                            {/* <div 
+                                className="after:bg-white content-none after:absolute  after:w-[30px] after:h-[80px] after:rounded-br-full" >
+                            </div> */}
 
                         </div>
                             <div className="flex flex-row gap-1">
@@ -200,12 +220,13 @@ const Drawing:React.FC = () => {
                         </div>
 
                 </div>
-                <div className="grid grid-cols-4 gap-2 ">
+                {/* <div className="grid grid-cols-4 gap-2 ">
                     <div className="m-2 col-span-4" >
                             <div className="grid grid-rows-2 w-[375px] p-1 gap-1">
                                 <div>
                                     <InputDisplay 
                                         suggestions={inputKanjiSuggestions} 
+                                        
                                         characterSelection={characterSelection} 
                                         selectedChar={selectedChar} 
                                         addCharacterSelection={addCharacterSelection}
@@ -221,7 +242,7 @@ const Drawing:React.FC = () => {
                                 </div>
                             </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="flex-row">
                     <div>inputKanjiSuggestions is {inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
@@ -231,6 +252,14 @@ const Drawing:React.FC = () => {
                 </div>
 
             </div>
+            <div
+                className="p-2 text-black "
+                    style={{
+                        writingMode: 'vertical-rl',
+                        textOrientation: 'mixed',
+                    }}
+            >煕煕</div>
+
         </>
     )
 }
