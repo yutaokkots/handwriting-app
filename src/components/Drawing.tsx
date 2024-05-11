@@ -19,7 +19,7 @@ import labels from '../lib/labels.ts'
 
 // test
 
-const inputKanjiSuggestion = ["な","ご","や","か","に","喜","び","合","い","楽","し","む","さ","ま"]
+//const inputKanjiSuggestion = ["な","ご","や","か","に","喜","び","合","い","楽","し","む","さ","ま"]
 
 //type CanvasType = (typeof Handwriting)['Canvas']
 
@@ -61,7 +61,6 @@ const Drawing:React.FC = () => {
         canvas && canvas.erase()
         setInputKanjiSuggestions([]);        
         setInputKanaSuggestions([]);       
-        //setInputAllSuggestions([]);       
         setCanvasEmpty(true) 
     };
     
@@ -200,14 +199,15 @@ const Drawing:React.FC = () => {
                     </div>
                     <div className="m-1  col-span-2  ">
                         <div className="row-span-1 relative h-[150px] ">
-                            <button
+                            {/* <button
                                 onClick={deleteChar}
                                 disabled={searchState == ""}
-                                className="absolute button-light w-[50px] h-[145px] mb-1 disabled:bg-gray-400 row-span-2"
+                                className="absolute button-light w-[50px] h-[40px] mb-1 disabled:bg-gray-400 row-span-2"
                                 aria-label={t("delete-button")}
                                 >
                                     <DeleteButton />
-                            </button>
+                            </button> */}
+    
                             {/* <div 
                                 className="after:bg-white content-none after:absolute  after:w-[30px] after:h-[80px] after:rounded-br-full" >
                             </div> */}

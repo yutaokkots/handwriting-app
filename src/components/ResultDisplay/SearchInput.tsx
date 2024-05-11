@@ -1,5 +1,8 @@
 import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'react';
 import { useSearchState, SearchState } from '../../lib/store';
+import { useTranslation } from "react-i18next";
+import DeleteButton from '../Buttons/DeleteButton';
+
 
 // Search Bar
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -68,7 +71,9 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
-    const { searchState }: SearchState = useSearchState();
+    const { searchState, searchStateSetter }: SearchState = useSearchState();
+
+    const { t } = useTranslation("translation")
 
     // 'copied' useState, true if something has been copied to clipboard.
     const [copied, setCopied] = useState<boolean>(false)
@@ -87,6 +92,14 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
         }
     }
 
+    // deletes a character in input field
+    const deleteChar = () => {
+        if (searchState){
+            const str = searchState.slice(0, -1)
+            searchStateSetter(str)
+        }
+    }
+
     const setCopiedStatus = () => {
         setCopied(false);
     }
@@ -98,10 +111,19 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
             </div>
             <button 
                 onClick={copyToClipboard} 
-                onTouchStart={copyToClipboard} 
                 className="absolute m-2 right-0">
                 <CopyButton copied={copied}/>
             </button>
+            {!searchState == "" &&
+                <button
+                onClick={ deleteChar }
+                disabled={searchState == ""}
+                className="absolute mb-1 mr-2 right-0 bottom-0 "
+                aria-label={t("delete-button")}
+                >
+                    <DeleteButton />
+            </button>
+            }
         </>
     );
 });
