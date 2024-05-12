@@ -219,13 +219,16 @@ const Drawing:React.FC = () => {
             
             </div>
 
-                <div className="flex-row">
+
+                {/* <div className="flex-row">
                     <div>inputKanjiSuggestions is {inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
                     <div>inputKanaSuggestions is {inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
                     <div>'selectedChar' is {selectedChar ? "full" : "empty"}: {selectedChar}</div>
                     <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
-                </div>
-
+                </div> */}
+            <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
+                
+            </div>
         </>
     )
 }

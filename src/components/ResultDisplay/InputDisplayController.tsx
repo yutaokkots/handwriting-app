@@ -11,8 +11,6 @@ interface inputDisplayControllerProps {
     deleteInputField: () => void;
 }
 
-
-
 const InputDisplayController:React.FC<inputDisplayControllerProps> = ({ deleteChar, deleteInputField }) => {
     const { searchState, searchStateSetter }: SearchState = useSearchState();
 

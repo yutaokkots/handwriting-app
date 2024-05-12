@@ -4,7 +4,6 @@ import Drawing from '../components/Drawing'
 import NavBar from '../components/NavBar/NavBar'
 
 
-
 const App:React.FC = () => {
     const [ windowSize, setWindowSize ] = useState<{width: number; height: NavigatorConcurrentHardwareumber;}>({
         width: window.innerWidth,
