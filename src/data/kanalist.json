@@ -1236,6 +1236,24 @@
       "enType":"sutegana"
     },
     {
+      "kana": "ゃ",
+      "romaji": "ya",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ゅ",
+      "romaji": "yu",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ょ",
+      "romaji": "yo",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
         "kana": "ア",
         "roumaji": "a",
         "jaType": "五十音",
@@ -2470,5 +2488,23 @@
         "roumaji": "o",
         "jaType": "捨て仮名",
         "enType":"sutegana"
+    },
+    {
+      "kana": "ャ",
+      "romaji": "ya",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ュ",
+      "romaji": "yu",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
+    },
+    {
+      "kana": "ョ",
+      "romaji": "yo",
+      "jaType": "捨て仮名",
+      "enType":"sutegana"
     }
 ]

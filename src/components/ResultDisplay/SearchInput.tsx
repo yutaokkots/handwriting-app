@@ -1,5 +1,8 @@
 import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'react';
 import { useSearchState, SearchState } from '../../lib/store';
+import { useTranslation } from "react-i18next";
+import SearchButton from '../Buttons/SearchButton';
+
 
 // Search Bar
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,9 +17,9 @@ const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, r
     useEffect(() => {
         setInputValue(searchState);
         if (inputRef && inputRef.current) {
-        inputRef.current.focus();
-        const newPosition = inputRef.current.value.length;
-        inputRef.current.setSelectionRange(newPosition, newPosition);
+            inputRef.current.focus();
+            const newPosition = inputRef.current.value.length;
+            inputRef.current.setSelectionRange(newPosition, newPosition);
         }
     }, [inputValue, searchState]);
 
@@ -68,7 +71,9 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
-    const { searchState }: SearchState = useSearchState();
+    const { searchState, searchStateSetter }: SearchState = useSearchState();
+
+    const { t } = useTranslation("translation")
 
     // 'copied' useState, true if something has been copied to clipboard.
     const [copied, setCopied] = useState<boolean>(false)
@@ -78,12 +83,29 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
         if (inputRef && searchState){
             navigator.clipboard.writeText(inputRef?.current.value)
             setCopied(true)
-            setTimeout(setCopiedStatus, 600)
+            if (inputRef.current) {
+                inputRef.current.focus();
+                const newPosition = inputRef.current.value.length;
+                inputRef.current.setSelectionRange(0, newPosition);
+            }
+            setTimeout(setCopiedStatus, 900)
+        }
+    }
+
+    // deletes a character in input field
+    const handleSearch = () => {
+        if (searchState){
+            //
         }
     }
 
     const setCopiedStatus = () => {
         setCopied(false);
+        if (inputRef.current) {
+            inputRef.current.focus();
+            const newPosition = inputRef.current.value.length;
+            inputRef.current.setSelectionRange(newPosition, newPosition);
+        }
     }
 
     return (
@@ -92,11 +114,21 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
                 <SearchBar inputRef={inputRef} {...rest} />
             </div>
             <button 
+                disabled={searchState == ""}
                 onClick={copyToClipboard} 
-                onTouchStart={copyToClipboard} 
-                className="absolute m-2 right-0">
+                className="absolute m-2 right-0 disabled:opacity-30">
                 <CopyButton copied={copied}/>
             </button>
+            {!(searchState == "") &&
+                <button
+                onClick={ handleSearch }
+                disabled={searchState == ""}
+                className="absolute mb-1 mr-2 right-0 bottom-0 "
+                aria-label={t("delete-button")}
+                >
+                    <SearchButton />
+                </button>
+            }
         </>
     );
 });
