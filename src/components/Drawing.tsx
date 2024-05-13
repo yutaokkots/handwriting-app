@@ -96,7 +96,7 @@ const Drawing:React.FC = () => {
     }, [themeState]);
 
     // The function to search local db for matching characters.
-    const inputCallback = (result: string[], err: string) => {
+    const inputCallback = (result: string[], err: string | Error) => {
         if (err) {
             return;
             // console.log(err);
