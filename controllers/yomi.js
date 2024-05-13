@@ -2,10 +2,15 @@
  * Yomi controller retrieves the hiragana equivalent of characters."
  */
 
-import masterList from "../models/resource.json" assert { type: "json" };
+// Commented out, real data:
+// import masterList from "../models/resource.json" assert { type: "json" };
+
+// Test data:
+import masterList from "../models/tempData.json" assert { type: "json" };
 
 const getYomi = async (req, res) => {
     const character = req.params.chr;
+    
     try{
         const yomi = await masterList[character];
         if (!yomi){
