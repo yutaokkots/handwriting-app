@@ -1,8 +1,6 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next';
 
 const ClearButton: React.FC = () => {
-    const { t } = useTranslation('translation');
 
     return (
         <div className="">

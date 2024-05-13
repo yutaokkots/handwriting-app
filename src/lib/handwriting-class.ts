@@ -8,7 +8,7 @@ interface HandwritingOptions {
     numOfReturn: number;
 }
 
-type CanvasType = (typeof Handwriting)['Canvas']
+//type CanvasType = (typeof Handwriting)['Canvas']
 
 type InputCallback = (result: string[], err: string) => void;
 
@@ -39,8 +39,8 @@ class Handwriting {
             requests: [
                 {
                 writing_guide: {
-                    writing_area_width: options.width || this.width || undefined,
-                    writing_area_height: options.height || this.width || undefined,
+                    writing_area_width: options.width ||  undefined,
+                    writing_area_height: options.height ||  undefined,
                 },
                 ink: trace,
                 language: options.language || "ja",

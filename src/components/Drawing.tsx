@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, RefObject} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Handwriting from '../lib/handwriting-class.ts';
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
@@ -39,6 +39,8 @@ const Drawing:React.FC = () => {
     const [inputKanaSuggestions, setInputKanaSuggestions] = useState<string[]>([]);
 
     const [inputAllSuggestions, setInputAllSuggestions] = useState<string[]>([]);
+
+    inputAllSuggestions;
 
     // Once user clicks on a character, it is temporarily stored in 'selectedChar'.
     const [selectedChar, setSelectedChar] = useState<string>("");
@@ -123,10 +125,10 @@ const Drawing:React.FC = () => {
     }
 
     // Below function is prop-drilled to inputDisplay to enable 'selectedChar' state change in child. 
-    const characterSelection = (character:string) => {
-        setSelectedChar("");
-        setSelectedChar(character)
-    }
+    // const characterSelection = (character:string) => {
+    //     setSelectedChar("");
+    //     setSelectedChar(character)
+    // }
 
     // Calls .recognize() on Canvas instance to send API request for char. recog.
     const recognizeChar = () => {
@@ -160,13 +162,11 @@ const Drawing:React.FC = () => {
                         <div className="grid grid-cols-2">
                             <InputDisplayVertical 
                                 suggestions={inputKanjiSuggestions}                                      
-                                characterSelection={characterSelection} 
                                 selectedChar={selectedChar} 
                                 addCharacterSelection={addCharacterSelection}
                                 name={labels.kanji}/> 
                             <InputDisplayVertical 
                                 suggestions={inputKanaSuggestions}                                      
-                                characterSelection={characterSelection} 
                                 selectedChar={selectedChar} 
                                 addCharacterSelection={addCharacterSelection}
                                 name={labels.kana}/> 
@@ -227,7 +227,7 @@ const Drawing:React.FC = () => {
                     <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
                 </div> */}
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
-                
+
             </div>
         </>
     )

@@ -39,7 +39,7 @@ export interface SearchState {
     searchStateSetter: (prompt:string) => void;
 }
 
-export const useSearchState = create<SearchState>((set, get) => ({
+export const useSearchState = create<SearchState>((set) => ({
     suggestionState: "",
     suggestionStateSetter: (suggest) => {
             set({

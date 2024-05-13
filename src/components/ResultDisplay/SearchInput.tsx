@@ -9,7 +9,7 @@ interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, ref) => {
+const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }) => {
     // Stores search query.
     const { searchState, searchStateSetter }: SearchState = useSearchState();
     const [inputValue, setInputValue] = useState<string>('');
@@ -71,7 +71,7 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
-    const { searchState, searchStateSetter }: SearchState = useSearchState();
+    const { searchState }: SearchState = useSearchState();
 
     const { t } = useTranslation("translation")
 
