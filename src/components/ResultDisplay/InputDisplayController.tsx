@@ -12,7 +12,7 @@ interface inputDisplayControllerProps {
 }
 
 const InputDisplayController:React.FC<inputDisplayControllerProps> = ({ deleteChar, deleteInputField }) => {
-    const { searchState, searchStateSetter }: SearchState = useSearchState();
+    const { searchState }: SearchState = useSearchState();
 
     const handleDeleteChar = () => {
         deleteChar()
