@@ -1,9 +1,8 @@
+/**
+ * Yomi controller retrieves the hiragana equivalent of characters."
+ */
+
 import masterList from "../models/resource.json" assert { type: "json" };
-
-//const masterList = require('../models/resource.json')
-
-
-console.log("controller here")
 
 const getYomi = async (req, res) => {
     const character = req.params.chr;
@@ -20,5 +19,3 @@ const getYomi = async (req, res) => {
 } 
 
 export default getYomi;
-
-//module.exports = getYomi
