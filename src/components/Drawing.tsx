@@ -158,7 +158,7 @@ const Drawing:React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-12 gap-2">
-                    <div className="m-1 ml-2 col-span-2 bg-white bg-opacity-20 rounded-lg w-[58px] h-[260px]">
+                    <div className="m-1 ml-2 col-span-3 bg-white bg-opacity-20 rounded-lg w-[90px] h-[260px]">
                         <div className="grid grid-cols-2">
                             <InputDisplayVertical 
                                 suggestions={inputKanjiSuggestions}                                      
