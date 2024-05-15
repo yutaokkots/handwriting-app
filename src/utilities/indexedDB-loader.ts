@@ -2,30 +2,35 @@
  * Utility for loading data into indexedDB for client.
  * https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase
  */
-import { data } from '../data/tempData'
+//import { data } from '../data/masterData2'
+import { data } from '../data/master_ver3'
 
-export const loadDB = async (databaseObj) => {
+export const loadDB = async (dbName: string) => {
+    const idbRequestObj = window.indexedDB.open(dbName)
     try {
         // Data that is read/write is not complete until the transaction is complete. 
         // .transaction() returns a IDBTransaction object, which contains the 'objectStore'.
-        const transaction = databaseObj.transaction("characters", "readwrite")
-        const objectStore = transaction.objectStore('characters')
+        idbRequestObj.onsuccess = () => {
 
-        Object.entries(data).forEach(([key, value]) => {
-            const item = {
-                id: key,
-                values:value
-            }
-            objectStore.add(item, key)
-            transaction.onsuccess = () => {
-                console.log('Data added to database successfully');
-            };
-        
-            transaction.onerror = (event) => {
-                console.error('Error adding data to database:', event.target.error);
-            };
-        })
-
+            const transaction = idbRequestObj.transaction("characters", "readwrite")
+            const objectStore = transaction.objectStore('characters')
+            
+            Object.entries(data).forEach(([key, value]) => {
+                const item = {
+                    id: key,
+                    values:value
+                }
+                objectStore.add(item, key)
+                transaction.onsuccess = () => {
+                    console.log('Data added to database successfully');
+                };
+                
+                transaction.onerror = (event) => {
+                    console.error('Error adding data to database:', event.target.error);
+                };
+            })
+        }
+            
     } catch(err){
         console.log("Failed to load data", err)
     }
@@ -52,7 +57,16 @@ export const indexedDBLoader = (dbName:string) => {
                 console.log("part A")
             } else if (db.objectStoreNames.length == 1) {
                 console.log("part B")
-                loadDB(db)
+                const transaction = db.transaction("characters", "readwrite")
+                const objectStore = transaction.objectStore('characters')
+
+                Object.entries(data).forEach(([key, value]) => {
+                    const item = {
+                        id: key,
+                        values:value
+                    }
+                    objectStore.add(item, key)
+                })
                 
             }
         }
