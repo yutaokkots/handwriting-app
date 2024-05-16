@@ -8,6 +8,7 @@
 -- See https://www.sqlite.org/pragma.html
 -- Inserts a value into a table named ftstable to trigger optimization for Full-Text Search (FTS)
 -- Reorganizes the database and applies the change in page_size. 
+
 pragma journal_mode = delete; 
 pragma page_size = 1024;
 
