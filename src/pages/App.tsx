@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import './App.css'
 import Drawing from '../components/Drawing'
 import NavBar from '../components/NavBar/NavBar'
-
+import { indexedDBLoader } from '../utilities/indexedDB-loader'
 
 const App:React.FC = () => {
     const [ windowSize, setWindowSize ] = useState<{width: number; height: number;}>({
@@ -11,6 +11,9 @@ const App:React.FC = () => {
     })
 
     useEffect(() => {
+        const storedItem = indexedDBLoader("characterResource")
+        console.log(storedItem)
+        
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,
@@ -21,6 +24,7 @@ const App:React.FC = () => {
         return () => {
             window.removeEventListener('resize', handleResize)
         }
+
     }, [])
 
     return (  

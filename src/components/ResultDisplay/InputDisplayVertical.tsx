@@ -34,8 +34,8 @@ const InputDisplayVertical: React.FC<SuggestionProps> = ({ suggestions, name, se
   return (
     <div>
         <div className="grid grid-rows-12 p-1 hover:cursor-pointer ">
-            <div className="row-span-2">{name}:</div>
-            <div className="flex row-span-11 overflow-y-scroll h-[210px] scrollbar"
+            <div className="row-span-2 text-center">{name}:</div>
+            <div className="flex row-span-11 items-center overflow-y-scroll h-[210px] scrollbar"
                 style={{
                     writingMode: 'vertical-rl',
                     textOrientation: 'mixed',
