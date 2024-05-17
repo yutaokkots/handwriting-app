@@ -1,6 +1,8 @@
 ## Splits a database into chunks of specific sizes and creates a config file. 
 #  see phirensky's repo: https://github.com/phiresky/sql.js-httpvfs/blob/master/create_db.sh
 
+# % chmod +x script/database_splitter.sh 
+
 # "e" <- script will exit immediately if any command fails
 # "u" <- produce an error if an unset variable is referenced
 set -eu
