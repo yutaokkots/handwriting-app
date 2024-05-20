@@ -1,22 +1,25 @@
+// import WebWorker from '';
+
+
 //import fetch from 'cross-fetch'
 
-import { Blob } from 'blob-polyfill'
+// import { Blob } from 'blob-polyfill'
 
-export const workerUrl = async () => {
-    const response = fetch(
-        "https://cdn.jsdelivr.net/npm/sql.js-httpvfs/dist/sqlite.worker.js"
-    )
-    const workerScript = await response.text()
-    const workerBlob = new Blob(
-        [workerScript], 
-        {
-            type: "application/javascript"
-        }
-    )
-    const workerUrl = URL.createObjectURL(workerBlob);
+// export const workerUrl = async () => {
+//     const response = fetch(
+//         "https://cdn.jsdelivr.net/npm/sql.js-httpvfs/dist/sqlite.worker.js"
+//     )
+//     const workerScript = await response.text()
+//     const workerBlob = new Blob(
+//         [workerScript], 
+//         {
+//             type: "application/javascript"
+//         }
+//     )
+//     const workerUrl = URL.createObjectURL(workerBlob);
 
-    return workerUrl
-}
+//     return workerUrl
+// }
 
 
 
