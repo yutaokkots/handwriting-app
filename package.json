@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jlongster/sql.js": "^1.6.7",
     "absurd-sql": "^0.0.54",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

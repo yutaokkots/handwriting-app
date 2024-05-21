@@ -1,57 +1,60 @@
-import { createSQLiteThread, createHttpBackend } from 'sqlite-wasm-http';
-import sqlite from 'sqlite-wasm-http/sqlite3.js';
+import React from 'react'
 
-console.log("in index.jsx")
-if (typeof sqlite !== 'function')
-  throw new Error('Importing sqlite3 subpath export failed');
+// sql.js is a javascript engine that allows running SQLite in the broswer.
+// It compiles the sqlite db engine to webassembly (wasm) using Emscripten.
+import initSqlJs from '@jlongster/sql.js'
 
-async function test() {
-  const httpBackend = createHttpBackend({
-    maxPageSize: 1024,
-    timeout: 10000
-  });
-  const db = await createSQLiteThread({ http: httpBackend });
+// SQLiteFS is a virtual file system (FS) that integrates the Emscripten FS, 
+// stored and persisted in IndexedDB.
+import { SQLiteFS } from 'absurd-sql'
 
-  await db('config-get', {});
+// IndexedDBBackend is a storage backend for the virtual FS .
+// It is a low-level API for storing data. 
+import IndexedDBBackend from 'absurd-sql/dist/indexeddb-backend'
 
-  await db('open', {
-    filename: 'file:' + encodeURI('https://velivole.b-cdn.net/maptiler-osm-2017-07-03-v3.6.1-europe.mbtiles'),
-    vfs: 'http'
-  });
+export const Index = () => {
+    const initializeDB = async () => {
+        // initializes the library and returns a promise.
+        // {locateFile: file => file} is a function that returns the file name as is
+        // implies that the .wasm file is expected to be in the same directory. 
+        let SQL = await initSqlJs({ locateFile: file => file });
 
-  let rows = 0;
-  await db('exec', {
-    sql: 'SELECT * FROM tiles WHERE zoom_level = 1',
-    callback: function (row) {
-      rows++;
-    }
-  });
-
-  if (rows !== 5)
-    throw new Error('test failed');
-}
-
-function App() {
-    test()
-    .then(() => {
-      if (typeof window.testDone === 'function'){
+        // SQL.FS is the file system (FS) interface provided by sql.js
+        let sqlFS = new SQLiteFS(SQL.FS, new IndexedDBBackend());
         
-        console.log("running in test environment")
-        window.testDone()
-      }
-      else {
-        console.error('Not running in the test environment');
-      }
-    })
-    .catch(window.testDone);
+        // register_for_idb, registers the virtual FS (sqlFS) with the 
+        // SQL.js library. It allows the use of SQLite db operations while
+        // the data is stored in indexedDB. 
+        SQL.register_for_idb(sqlFS);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        React Integration
-      </header>
-    </div>
-  );
+        // Creates a directory in the virtual FS (that is managed by 
+        // SQL.js and Emscripten (and not in the actual host system)).
+        SQL.FS.mkdir('/sql');
+
+        // Mounts (makes accessible) a file system into the Emscripten VFS. 
+        // sqlFS <= instance of the SQLiteFS virtual file system
+        // {} <= empty options
+        // '/sql' <= the mount point path. 
+        SQL.FS.mount(sqlFS, {}, '/sql');
+     
+        // new SQL.Database() is a constructor to open or create a SQLite db.
+        // '/sql/db.sqlite' <= file path within VFS, and file name. 
+        // { filename: true } <= option that db should be created as a file, rather than in-memory.
+        let db = new SQL.Database('/sql/db.sqlite', { filename: true });
+        
+        // db.exec() executes SQL statements on the database. 
+        // PRAGMA page_size <= sets database page size (single page of db in SQLite).
+        // PRAGMA journal_mode=MEMORY <= rollback journal is kept in memory rather than disk. 
+        db.exec(`
+            PRAGMA page_size = 8192;
+            PRAGMA journal_mode=MEMORY;
+        `)
+        return db
+    }
+
+
+
+    return (
+        <div>Index</div>
+    )
 }
-
-export default App;
