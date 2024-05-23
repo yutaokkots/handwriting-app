@@ -26,6 +26,13 @@ export default defineConfig({
       }
     }
   },
+  ssr: {
+    noExternal: ['@jlongster'],
+  },
+  // optimizeDeps:{
+  //   exclude: ['@jlongster/sql-js'],
+  // },
+  //optimizeDeps.exclude: ['@jlongster'],
   worker: {    
     format: 'es',  
   },
