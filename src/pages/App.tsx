@@ -37,7 +37,6 @@ const App:React.FC = () => {
             <>
                 <NavBar />
                     <div>{windowSize.width} x {windowSize.height}</div>
-                    
                 <Drawing/>
             </>
             )

@@ -25,5 +25,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '') // Remove the '/api' prefix before proxying
       }
     }
-  }
+  },
+  worker: {    
+    format: 'es',  
+  },
 });
