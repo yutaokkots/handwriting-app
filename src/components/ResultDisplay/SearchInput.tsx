@@ -9,17 +9,19 @@ interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, ref) => {
+const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }) => {
     // Stores search query.
     const { searchState, searchStateSetter }: SearchState = useSearchState();
     const [inputValue, setInputValue] = useState<string>('');
 
     useEffect(() => {
         setInputValue(searchState);
-        if (inputRef && inputRef.current) {
-            inputRef.current.focus();
-            const newPosition = inputRef.current.value.length;
-            inputRef.current.setSelectionRange(newPosition, newPosition);
+        if (inputRef && 'current' in inputRef) {
+            inputRef.current?.focus();
+            const newPosition = inputRef.current?.value.length;
+            if (typeof newPosition == 'number'){    
+                inputRef.current?.setSelectionRange(newPosition, newPosition);
+            }
         }
     }, [inputValue, searchState]);
 
@@ -70,8 +72,8 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
-    const { searchState, searchStateSetter }: SearchState = useSearchState();
+const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }) => {
+    const { searchState }: SearchState = useSearchState();
 
     const { t } = useTranslation("translation")
 
@@ -80,8 +82,8 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
 
     // Copy to clipboard function. 'copied' state is true for several secs.
     const copyToClipboard = () => {
-        if (inputRef && searchState){
-            navigator.clipboard.writeText(inputRef?.current.value)
+        if (inputRef && 'current' in inputRef && searchState){
+            navigator.clipboard.writeText(inputRef?.current?.value ?? '')
             setCopied(true)
             if (inputRef.current) {
                 inputRef.current.focus();
@@ -101,10 +103,12 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
 
     const setCopiedStatus = () => {
         setCopied(false);
-        if (inputRef.current) {
-            inputRef.current.focus();
-            const newPosition = inputRef.current.value.length;
-            inputRef.current.setSelectionRange(newPosition, newPosition);
+        if (inputRef && 'current' in inputRef) {
+            inputRef.current?.focus();
+            const newPosition = inputRef.current?.value.length;
+            if (typeof newPosition == "number"){
+                inputRef.current?.setSelectionRange(newPosition, newPosition);
+            }
         }
     }
 

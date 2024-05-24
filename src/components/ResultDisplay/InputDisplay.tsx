@@ -20,7 +20,7 @@ const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selec
     
     const handleEvent = (character:string) => {
         addCharacterSelection(character)
-        //characterSelection(character)
+        characterSelection(character)
     }
 
     return (

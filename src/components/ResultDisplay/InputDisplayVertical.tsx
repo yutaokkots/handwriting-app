@@ -3,19 +3,17 @@ import React from 'react'
 interface SuggestionProps{
     suggestions:string[];
     name: string;
-    characterSelection: (character:string) => void
     selectedChar: string;
     addCharacterSelection: (character:string) => void;
 }
 
 interface CharProps {
     displayChar: string;
-    characterSelection: (character:string) => void
     selectedChar: string;
     addCharacterSelection: (character:string) => void;
 }
 
-const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selectedChar, addCharacterSelection }) => {
+const Character: React.FC<CharProps> = ({ displayChar, selectedChar, addCharacterSelection }) => {
     
     const handleEvent = (character:string) => {
         addCharacterSelection(character)
@@ -32,12 +30,12 @@ const Character: React.FC<CharProps> = ({ displayChar, characterSelection, selec
     )
 }
 
-const InputDisplayVertical: React.FC<SuggestionProps> = ({ suggestions, name, characterSelection, selectedChar, addCharacterSelection}) => {
+const InputDisplayVertical: React.FC<SuggestionProps> = ({ suggestions, name, selectedChar, addCharacterSelection}) => {
   return (
     <div>
         <div className="grid grid-rows-12 p-1 hover:cursor-pointer ">
-            <div className="row-span-2">{name}:</div>
-            <div className="flex row-span-11 overflow-y-scroll h-[210px] scrollbar"
+            <div className="row-span-2 text-center">{name}:</div>
+            <div className="flex row-span-11 items-center overflow-y-scroll h-[210px] scrollbar"
                 style={{
                     writingMode: 'vertical-rl',
                     textOrientation: 'mixed',
@@ -46,7 +44,6 @@ const InputDisplayVertical: React.FC<SuggestionProps> = ({ suggestions, name, ch
                     <Character 
                         key={idx} 
                         displayChar={s} 
-                        characterSelection={characterSelection}
                         selectedChar={selectedChar}
                         addCharacterSelection={addCharacterSelection}
                     />)
