@@ -11,8 +11,7 @@
 //     },
 //   };
 
-
-  import webpack from 'webpack';
+import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 function getConfig(name, entry, html) {

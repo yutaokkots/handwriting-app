@@ -20,23 +20,14 @@ import wasm from "vite-plugin-wasm";
 export default defineConfig({
   plugins: [
     react(),
-    wasm(),
-    //topLevelAwait()
-
-    // {
-    //   name: 'exclude-wasm',
-    //   transform(code, id) {
-    //     if (id.endsWith('.wasm')) {
-    //       return {
-    //         code: code,
-    //         moduleSideEffects: true,
-    //       };
-    //     }
-    //   },
-    // },
-
+    wasm()
   ],
+
   server: {
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'require-corp'
+    },
     port: 5173, // Set the port for the frontend server
     proxy: {
       '/api': {
