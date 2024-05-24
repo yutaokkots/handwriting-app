@@ -201,11 +201,7 @@ const Drawing:React.FC = () => {
                             </div>          
                         </div>
                     </div>
-                    <div className="m-1  col-span-2  ">
-                        <div className="row-span-1 relative h-[150px] ">
-                        </div>
-    
-                    </div>
+
 
                 </div>
                 <div 

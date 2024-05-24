@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import logger from 'morgan';
 import yomiRouter from './routes/api/yomi.js';
+import connRouter from './routes/api/connect.js';
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(express.static(path.join(new URL(import.meta.url).pathname, 'dist')));
 
 // Put all API routes here (before the catch-all)
 app.use('/api', yomiRouter);
+app.use('/api', connRouter);
+
 
 app.use(express.static(path.join(new URL(import.meta.url).pathname, '..', 'dist')));
 
