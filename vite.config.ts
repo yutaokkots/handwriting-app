@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+import wasm from "vite-plugin-wasm";
+// import topLevelAwait from "vite-plugin-top-level-await";
+
 // https://vitejs.dev/config/
 // export default defineConfig({
 //   plugins: [react()],
@@ -15,7 +18,24 @@ import react from '@vitejs/plugin-react'
 // })
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    wasm(),
+    //topLevelAwait()
+
+    // {
+    //   name: 'exclude-wasm',
+    //   transform(code, id) {
+    //     if (id.endsWith('.wasm')) {
+    //       return {
+    //         code: code,
+    //         moduleSideEffects: true,
+    //       };
+    //     }
+    //   },
+    // },
+
+  ],
   server: {
     port: 5173, // Set the port for the frontend server
     proxy: {
@@ -33,7 +53,9 @@ export default defineConfig({
   //   exclude: ['@jlongster/sql-js'],
   // },
   //optimizeDeps.exclude: ['@jlongster'],
-  worker: {    
-    format: 'es',  
-  },
+
+
+  // resolve: {    
+  //   extensions: ['.js', '.jsx', '.ts','.tsx', '.worker.js'] // Add any other extensions you want Vite to treat as modules  }
+  // }
 });

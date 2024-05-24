@@ -9,7 +9,6 @@ import NavBar from '../components/NavBar/NavBar'
 import { initBackend } from 'absurd-sql/dist/indexeddb-main-thread';
 
 
-
 const App:React.FC = () => {
     const [ windowSize, setWindowSize ] = useState<{width: number; height: number;}>({
         width: window.innerWidth,
