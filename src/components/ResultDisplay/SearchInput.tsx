@@ -9,11 +9,12 @@ interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }) => {
+const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, ref) => {
     // Stores search query.
     const { searchState, searchStateSetter }: SearchState = useSearchState();
     const [inputValue, setInputValue] = useState<string>('');
 
+    console.log(ref)
     useEffect(() => {
         setInputValue(searchState);
         if (inputRef && 'current' in inputRef) {
@@ -72,13 +73,15 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }) => {
+const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
     const { searchState }: SearchState = useSearchState();
 
     const { t } = useTranslation("translation")
 
     // 'copied' useState, true if something has been copied to clipboard.
     const [copied, setCopied] = useState<boolean>(false)
+
+    console.log(ref)
 
     // Copy to clipboard function. 'copied' state is true for several secs.
     const copyToClipboard = () => {

@@ -21,7 +21,7 @@ const App:React.FC = () => {
         //console.log(storedItem)
 
         //////////
-        const worker = new Worker(new URL('../index.worker.js', import.meta.url));
+        const worker = new Worker(new URL('../index.worker.js', import.meta.url), { type: 'module' });
         // This is only required because Safari doesn't support nested
         // workers. This installs a handler that will proxy creating web
         // workers through the main thread
@@ -29,10 +29,6 @@ const App:React.FC = () => {
         initBackend(worker);
         //////////
 
-
-        // const db = init()
-        // setDatabase(db)
-        // console.log(db)
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,

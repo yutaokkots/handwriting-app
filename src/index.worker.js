@@ -1,8 +1,11 @@
 /**
- *  Dynamically import the required modules, because of conflict between Vite's
-    import of CommonJS-based code from 'absurd-sql' and '@jlongster' dependencies.
+ * 'initializeDB' dynamically imports the required modules (rather than import statements 
+ * at the top of the code), because of conflict between Vite's requirement for ECMA and 
+ * CommonJS-based code from 'absurd-sql' and '@jlongster' dependencies.
  * @returns 
  */
+
+import data from './data/masterKanji'
 
 const initializeDB = async () => {
     // sql.js is a javascript engine that allows running SQLite in the broswer.
@@ -59,35 +62,111 @@ const initializeDB = async () => {
       PRAGMA page_size=8192;
       PRAGMA journal_mode=MEMORY;
     `);
-      console.log("index.worker.js")
     return db;
   };
 
+const loadDB = async () => {
+  let db = await initializeDB();
 
+  try{
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS kanji (
+        key TEXT PRIMARY KEY,
+        value TEXT
+      )
+    `)
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS kana (
+        key INTEGER PRIMARY KEY AUTOINCREMENT,
+        kanji_key TEXT,
+        value TEXT,
+        FOREIGN KEY (kanji_key) REFERENCES kanji(key)
+      )
+    `)
 
-async function runQueries() {
-    let db = await initializeDB();
+  } catch(err){
+    console.log(err)
+  } 
+  db.exec('BEGIN TRANSACTION');
 
-    console.log(db)
-    try {
-      db.exec(`CREATE TABLE kv (key TEXT PRIMARY KEY, value TEXT)`);
-      console.log('table created?')
-    } catch (e) {
-      console.log(e)
-    }
+  // Compiles the SQL statement into a prepared statement. 
+  // 'INSERT OR REPLACE INTO' inserts key into new row if key does not exist, or 
+  //    replaces the existing row if the key already exists. 
+  let insertKanjiStmt = db.prepare('INSERT OR REPLACE INTO kanji (key, value) VALUES (?, ?)');
+  let insertKanaStmt = db.prepare('INSERT OR REPLACE INTO kana (kanji_key, value) VALUES (?, ?)');
 
-    db.exec('BEGIN TRANSACTION');
-    let stmt = db.prepare('INSERT OR REPLACE INTO kv (key, value) VALUES (?, ?)');
-    for (let i = 0; i < 5; i++) {
-        stmt.run([i, ((Math.random() * 100) | 0).toString()]);
-    }
-    stmt.free();
-    db.exec('COMMIT');
+  for (const [key, values] of Object.entries(data)){
+    insertKanjiStmt.run(key);
+    values.forEach((value) => {
+      insertKanaStmt.run(key, value)
+    })
+  }
+  insertKanjiStmt.free()
+  insertKanaStmt.free()
+  db.exec('COMMIT');
+  db.close()
 
-    stmt = db.prepare(`SELECT SUM(value) FROM kv`);
-    stmt.step();
-    console.log('Result:', stmt.getAsObject());
-    stmt.free();
+  // try {
+  //   db.exec('CREATE TABLE kv (key TEXT PRIMARY KEY, value TEXT)');
+  // } catch (e) {}
+
+  // db.exec('BEGIN TRANSACTION');
+  // let stmt = db.prepare('INSERT OR REPLACE INTO kv (key, value) VALUES (?, ?)');
+  // for (let i = 0; i < 5; i++) {
+  //   stmt.run([i, ((Math.random() * 100) | 0).toString()]);
+  // }
+  // stmt.free();
+  // db.exec('COMMIT');
+
+  // stmt = db.prepare(`SELECT SUM(value) FROM kv`);
+  // stmt.step();
+  // console.log('Result:', stmt.getAsObject());
+  // stmt.free();
 }
 
-runQueries();    
+loadDB();   
+
+
+// async function runQueries() {
+//     let db = await initializeDB();
+
+//     console.log(db)
+//     try {
+//       db.exec(`
+//         CREATE TABLE IF NOT EXISTS kv (key TEXT PRIMARY KEY, value TEXT)
+//       `);
+//       console.log('table created?')
+//     } catch (e) {
+//       console.log(e)
+//     }
+
+//     db.exec('BEGIN TRANSACTION');
+//     let stmt = db.prepare('INSERT OR REPLACE INTO kv (key, value) VALUES (?, ?)');
+//     for (let i = 0; i < 5; i++) {
+//         stmt.run([i, ((Math.random() * 100) | 0).toString()]);
+//     }
+//     stmt.free();
+//     db.exec('COMMIT');
+
+//     stmt = db.prepare(`SELECT SUM(value) FROM kv`);
+//     stmt.step();
+//     console.log('Result:', stmt.getAsObject());
+//     stmt.free();
+// }
+
+//runQueries(); 
+
+
+/**
+ * C/C++ based SQL Interface:
+ * sqlite3 → The database connection object. Created by sqlite3_open() and destroyed by sqlite3_close().
+ * sqlite3_stmt → The prepared statement object. Created by sqlite3_prepare() and destroyed by sqlite3_finalize().
+ * sqlite3_open() → Open a connection to a new or existing SQLite database. The constructor for sqlite3.
+ * sqlite3_prepare() → Compile SQL text into byte-code that will do the work of querying or updating the database. The constructor for sqlite3_stmt.
+ * sqlite3_bind() → Store application data into parameters of the original SQL.
+ * sqlite3_step() → Advance an sqlite3_stmt to the next result row or to completion.
+ * sqlite3_column() → Column values in the current result row for an sqlite3_stmt.
+ * sqlite3_finalize() → Destructor for sqlite3_stmt.
+ * sqlite3_close() → Destructor for sqlite3.
+ * sqlite3_exec() → A wrapper function that does sqlite3_prepare(), sqlite3_step(), sqlite3_column(), and sqlite3_finalize() for a string of one or more SQL statements.
+ */
