@@ -2,7 +2,7 @@ import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'rea
 import { useSearchState, SearchState } from '../../lib/store';
 import { useTranslation } from "react-i18next";
 import SearchButton from '../Buttons/SearchButton';
-
+import { mergeRefs } from "react-merge-refs";
 
 // Search Bar
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,7 +14,6 @@ const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, r
     const { searchState, searchStateSetter }: SearchState = useSearchState();
     const [inputValue, setInputValue] = useState<string>('');
 
-    console.log(ref)
     useEffect(() => {
         setInputValue(searchState);
         if (inputRef && 'current' in inputRef) {
@@ -36,7 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = forwardRef(({ inputRef, ...rest }, r
             id="search-input"
             onChange={handleChange}
             type="text"
-            ref={inputRef}
+            ref={mergeRefs([inputRef, ref])}
             className="w-[380px] dark:bg-[--accent-color-dark] p-2 rounded-md"
             value={inputValue}
             {...rest}
@@ -73,15 +72,13 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputRef: React.Ref<HTMLInputElement>;
 }
 
-const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }, ref) => {
+const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest }) => {
     const { searchState }: SearchState = useSearchState();
 
     const { t } = useTranslation("translation")
 
     // 'copied' useState, true if something has been copied to clipboard.
     const [copied, setCopied] = useState<boolean>(false)
-
-    console.log(ref)
 
     // Copy to clipboard function. 'copied' state is true for several secs.
     const copyToClipboard = () => {
@@ -118,7 +115,7 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
     return (
         <>
             <div className="absolute text-6xl">
-                <SearchBar inputRef={inputRef} {...rest} />
+                <SearchBar inputRef={inputRef} {...rest}/>
             </div>
             <button 
                 disabled={searchState == ""}

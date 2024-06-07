@@ -5,7 +5,7 @@
  * @returns 
  */
 
-import data from './data/masterKanji'
+import { data } from './data/masterKanji'
 
 const initializeDB = async () => {
     // sql.js is a javascript engine that allows running SQLite in the broswer.

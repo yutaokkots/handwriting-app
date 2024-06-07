@@ -22,6 +22,9 @@ export default defineConfig({
     react(),
     wasm()
   ],
+  worker: {
+    format: "es"
+  },
 
   server: {
     headers: {
