@@ -16,7 +16,6 @@ const OutputDisplay:React.FC = () => {
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
         searchStateSetter(inputValue)
-        console.log("outputDisplay component triggered")
     }
     return (
         <input 
@@ -24,7 +23,6 @@ const OutputDisplay:React.FC = () => {
             type="text"
             className="w-[380px] dark:bg-[--accent-color-dark] p-2"
             value={inputValue}>
-            
         </input>
     )
 }

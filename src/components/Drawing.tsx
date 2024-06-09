@@ -15,7 +15,6 @@ import labels from '../lib/labels.ts'
 import InputDisplayController from "./ResultDisplay/InputDisplayController.tsx";
 
 // test
-
 //const inputKanjiSuggestion = ["な","ご","や","か","に","喜","び","合","い","楽","し","む","さ","ま"]
 
 //type CanvasType = (typeof Handwriting)['Canvas']

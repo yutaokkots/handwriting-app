@@ -7,7 +7,6 @@ import { create } from 'zustand'
 /** 
 * State for the dark/light theme for the site.
 * @state {'dark'|'light'|null} themeState - represents the strings, 'dark' or 'light'.
-* @function themeToggler - switches the theme state between 'dark' and 'light'.
 * @function themeStateSetter - sets the theme state. 
 */
 
@@ -26,10 +25,11 @@ export const useThemeStore = create<ThemeState>((set) => ({
 }))
 
 /** 
-* State for the dark/light theme for the site.
-* @state {'dark'|'light'|null} themeState - represents the strings, 'dark' or 'light'.
-* @function themeToggler - switches the theme state between 'dark' and 'light'.
-* @function themeStateSetter - sets the theme state. 
+* State for the Search State and Suggestion State. 
+* @state suggestionState - 
+* @function suggestionStateSetter - 
+* @state searchState - String state for the search term that is found in the search bar (SearchInput.tsx).
+* @function searchStateSetter - Sets the searchState. 
 */
 
 export interface SearchState {
@@ -50,7 +50,26 @@ export const useSearchState = create<SearchState>((set) => ({
     searchStateSetter: (searchState) => {
         set({
             searchState: searchState
-            //            suggestionState: searchState + get().searchState
         })
     }
+}))
+
+
+/** 
+* State for the absurd-sql worker object (the worker thread).
+* @state workerState - represents the worker object thread.
+* @function workerStateSetter - sets the workerState.
+*/
+
+export interface WorkerStore {
+    workerState: Worker | null;
+    setWorkerState: (worker: Worker | null) => void;
+}
+
+export const useWorkerStore = create<WorkerStore>((set) => ({
+    workerState: null,
+    setWorkerState: (worker) => 
+        set({ 
+            workerState: worker 
+        })
 }))

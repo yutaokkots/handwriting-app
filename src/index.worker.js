@@ -105,27 +105,11 @@ const loadDB = async () => {
   insertKanaStmt.free()
   db.exec('COMMIT');
   db.close()
-
-  // try {
-  //   db.exec('CREATE TABLE kv (key TEXT PRIMARY KEY, value TEXT)');
-  // } catch (e) {}
-
-  // db.exec('BEGIN TRANSACTION');
-  // let stmt = db.prepare('INSERT OR REPLACE INTO kv (key, value) VALUES (?, ?)');
-  // for (let i = 0; i < 5; i++) {
-  //   stmt.run([i, ((Math.random() * 100) | 0).toString()]);
-  // }
-  // stmt.free();
-  // db.exec('COMMIT');
-
-  // stmt = db.prepare(`SELECT SUM(value) FROM kv`);
-  // stmt.step();
-  // console.log('Result:', stmt.getAsObject());
-  // stmt.free();
 }
 
 loadDB();   
 
+console.log("end of 'loadDB' function")
 
 // async function runQueries() {
 //     let db = await initializeDB();

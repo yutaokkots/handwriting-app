@@ -26,7 +26,6 @@ const SearchBar:React.FC  = () => {
         searchStateSetter(e.target.value)
     }
 
-
     return (
         <input 
             onChange={handleChange}
