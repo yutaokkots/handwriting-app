@@ -127,7 +127,7 @@ const SearchInput: React.FC<SearchInputProps> = forwardRef(({ inputRef, ...rest 
                 <button
                 onClick={ handleSearch }
                 disabled={searchState == ""}
-                className="absolute mb-1 mr-2 right-0 bottom-0 "
+                className="absolute mb-1 mr-2 right-0 bottom-2 "
                 aria-label={t("delete-button")}
                 >
                     <SearchButton />

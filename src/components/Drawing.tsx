@@ -13,6 +13,7 @@ import SearchInput from "./ResultDisplay/SearchInput.tsx";
 import InputDisplayVertical from "./ResultDisplay/InputDisplayVertical.tsx";
 import labels from '../lib/labels.ts'
 import InputDisplayController from "./ResultDisplay/InputDisplayController.tsx";
+import SearchResult from "./ResultDisplay/SearchResult.tsx";
 
 // test
 //const inputKanjiSuggestion = ["な","ご","や","か","に","喜","び","合","い","楽","し","む","さ","ま"]
@@ -151,10 +152,15 @@ const Drawing:React.FC = () => {
         <>
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
                 <div className="grid-cols-4 ">
-                    <div className="relative m-2 col-span-4 h-[80px]">
+                    <div className="relative flex-col m-2 col-span-4 h-[130px] w-[380px] dark:bg-[--accent-color-dark] rounded-md">
                         <SearchInput inputRef={inputRef}/>
+                        <div className="absolute bottom-1 text h-[25px] m-2 ml-3">
+                            <SearchResult />
+                        </div>
+
                     </div>
                 </div>
+
 
                 <div className="grid grid-cols-12 gap-2">
                     <div className="m-1 ml-2 col-span-3 bg-white bg-opacity-20 rounded-lg w-[90px] h-[260px]">
@@ -214,13 +220,6 @@ const Drawing:React.FC = () => {
             
             </div>
 
-
-                {/* <div className="flex-row">
-                    <div>inputKanjiSuggestions is {inputKanjiSuggestions.length == 0 ? "empty" : "full"}</div>
-                    <div>inputKanaSuggestions is {inputKanaSuggestions.length == 0 ? "empty" : "full"}</div>
-                    <div>'selectedChar' is {selectedChar ? "full" : "empty"}: {selectedChar}</div>
-                    <div>'searchState' is {searchState ? "full" : "empty"}: {searchState}</div>
-                </div> */}
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
 
             </div>

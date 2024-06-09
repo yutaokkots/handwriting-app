@@ -9,10 +9,12 @@ import { useWorkerStore } from '../lib/store';
 import { initBackend } from 'absurd-sql/dist/indexeddb-main-thread';
 
 const App:React.FC = () => {
+    // State that store window-size information. 
     const [ windowSize, setWindowSize ] = useState<{width: number; height: number;}>({
         width: window.innerWidth,
         height : window.innerHeight
     })
+
     // Global store that holds the worker thread in the 'workerState'
     const { workerState, setWorkerState } = useWorkerStore() 
 
