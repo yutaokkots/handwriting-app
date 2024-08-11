@@ -1,39 +1,45 @@
-import React, { useEffect } from 'react'
-import { useThemeStore, ThemeState } from "../../lib/store.ts";
-import { themeGetter, themeSetter } from '../../utilities/themeSetterGetter.ts';
+import React from 'react'
 import './toggler.css'
 
-const Toggler:React.FC = () => {
+const ThemeToggler:React.FC = () => {
     return (
-        <div className="flex b-10 justify-center">
-            <div className="theme-light-ext dark:theme-dark-ext ">
-                <div className="dark:theme-dark-outer">
-                    <div className="theme-light-sun dark:theme-dark-moon"></div>
+        <> 
+            <div className="flex b-10 justify-center">
+                <div className="
+                        flex justify-start items-center
+                        relative bg-[#87CEEB] w-11 h-6
+                        p-[2px] rounded-full
+                        dark:w-11
+                        dark:h-6
+                        dark:rounded-full 
+                        dark:bg-[#efeeee]">
+                    <div 
+                        className="
+                            absolute
+                            dark:w-5
+                            dark:h-5
+                            bg-[#4c5255]
+                            dark:rounded-full
+                            dark:top-[2px]
+                            dark:right-[2px]
+                        ">
+                        <div 
+                            className="
+                                absolute w-5 h-5 bg-[#FFFF00] 
+                                rounded-full left-[1px] -top-[10px]
+                                dark:absolute
+                                dark:bg-[#efeeee]
+                                dark:bg-transparent
+                                dark:shadow-[6px_4px_0_0_#fff]
+                                dark:h-4
+                                dark:w-4
+                                dark:-top-[2px]
+                                dark:-left-[3.5px]
+                                "></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
-}
-
-const ThemeToggler:React.FC = () => {
-    // Gets themeState (state) and themeStateSetter (setter function) from store.ts.
-    const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
-
-    const toggleTheme = () => {
-        const theme = themeState == "light" ? "dark" : "light"
-        themeStateSetter(theme);
-        // Sets theme into localhost.
-        themeSetter(theme);  
-    }
-
-    useEffect(() => {
-        document.documentElement.className = themeGetter()     
-    }, [themeState])
-
-    return (
-        <button onClick={toggleTheme}>
-            <Toggler></Toggler>
-        </button>
+        </>
     )
 }
 

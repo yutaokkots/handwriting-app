@@ -1,16 +1,22 @@
 import React from 'react'
-import './toggler.css'
 
-const Toggler:React.FC = () => {
+interface TogglerProps {
+    togglerFunction: () => void;
+    TogglerComponent: React.ComponentType;
+}
+
+const Toggler:React.FC<TogglerProps> = ({ togglerFunction, TogglerComponent }) => {
+    const handleClick = () => {
+        togglerFunction();
+    }
     return (
-        <div className="flex b-10 justify-center">
-            <div className="theme-light-ext dark:theme-dark-ext ">
-                <div className="dark:theme-dark-outer">
-                    <div className="theme-light-sun dark:theme-dark-moon"></div>
-                </div>
-            </div>
-        </div>
+        <>
+            <button
+                onClick={handleClick}>
+                <TogglerComponent/>
+            </button>
+        </>
     )
 }
 
-export default Toggler
+export default Toggler;

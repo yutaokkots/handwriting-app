@@ -73,3 +73,38 @@ export const useWorkerStore = create<WorkerStore>((set) => ({
             workerState: worker 
         })
 }))
+
+/**
+ * Store for holding left-hand or right-hand app.
+ * @state handPrefRight: boolean, holds information about handed-ness (right = true)
+ * @function handPrefRightSetter = sets the handPrefRight
+ */
+
+export interface HandPrefStore{
+    handPref: 'left' | 'right',
+    setHandPref: (handPref: 'left' | 'right') => void;
+}
+
+export const useHandPrefStore = create<HandPrefStore>((set) => ({
+    handPref: 'right',
+    setHandPref: (handPref) => 
+        set({
+            handPref: handPref
+        })
+    })
+)
+
+
+// export interface ThemeState {
+//     themeState: 'dark' | 'light';
+//     themeStateSetter: (theme:'dark'|'light') => void;
+// }
+
+// export const useThemeStore = create<ThemeState>((set) => ({
+//     themeState: 'light',
+//     themeStateSetter: (theme) => {
+//         set({
+//             themeState: theme
+//         })
+//     } 
+// }))

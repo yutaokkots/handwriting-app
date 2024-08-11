@@ -49,12 +49,12 @@ const App:React.FC = () => {
     }, [])
     
     return (  
-            <>
-                <NavBar />
-                    <div>{windowSize.width} x {windowSize.height}</div>
-                <Drawing/>
-            </>
-            )
+        <>
+            <NavBar />
+                <div>{windowSize.width} x {windowSize.height}</div>
+            <Drawing/>
+        </>
+        )
 }
 
 export default App

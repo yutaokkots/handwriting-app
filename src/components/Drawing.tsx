@@ -3,9 +3,10 @@ import Handwriting from '../lib/handwriting-class.ts';
 import { inputOptions } from '../lib/handwriting-options.ts';
 import SearchList from '../data/searchlist.json'
 import KanaList from '../data/kanalist.json'
-import { useThemeStore, ThemeState } from "../lib/store.ts";
-import { useSearchState , SearchState } from "../lib/store.ts";
-import { themeGetter } from '../utilities/themeSetterGetter.ts';
+import { useThemeStore, ThemeState, 
+    useSearchState , SearchState,
+    useHandPrefStore, HandPrefStore  } from "../lib/store.ts";
+import { themeGetter } from '../utilities/localhostSetterGetter.ts';
 import { useTranslation } from "react-i18next";
 import ClearButton from "./Buttons/ClearButton.tsx";
 import UndoButton from "./Buttons/UndoButton.tsx";
@@ -51,6 +52,8 @@ const Drawing:React.FC = () => {
     // Stores 'dark' or 'light' for quick switch between dark/light mode. 
     const { themeState, themeStateSetter }:ThemeState = useThemeStore() 
 
+    const { handPref }:HandPrefStore = useHandPrefStore();
+
     const canvasRef = useRef<HTMLCanvasElement>(null);  
     
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -69,7 +72,7 @@ const Drawing:React.FC = () => {
         setInputKanjiSuggestions([]);        
         setInputKanaSuggestions([]);        
     }
-    
+
     //
     const handleDraw = () => {
         setCanvasEmpty(false) 
@@ -160,10 +163,8 @@ const Drawing:React.FC = () => {
 
                     </div>
                 </div>
-
-
                 <div className="grid grid-cols-12 gap-2">
-                    <div className="m-1 ml-2 col-span-3 bg-white bg-opacity-20 rounded-lg w-[90px] h-[260px]">
+                    <div className={` ${handPref === 'right' ? 'order-1 ml-2' : 'order-2'}  m-1 ml-2 col-span-3 bg-white bg-opacity-20 rounded-lg w-[90px] h-[260px]`}>
                         <div className="grid grid-cols-2">
                             <InputDisplayVertical 
                                 suggestions={inputKanjiSuggestions}                                      
@@ -177,7 +178,7 @@ const Drawing:React.FC = () => {
                                 name={labels.kana}/> 
                         </div>
                     </div>
-                    <div className="relative m-1 col-span-8 w-[260px]">
+                    <div className={` ${handPref === 'right' ? 'order-2' : 'order-1'}  relative m-1 col-span-8 w-[260px]`}>
                         <canvas 
                             className="absolute bg-[--tertiary-color] dark:bg-[--accent-color-dark] rounded-lg cursor-crosshair stroke-black" 
                             id="canvas" 
@@ -206,8 +207,6 @@ const Drawing:React.FC = () => {
                             </div>          
                         </div>
                     </div>
-
-
                 </div>
                 <div 
                     className="grid grid-cols-12 m-2 gap-1"
@@ -217,9 +216,7 @@ const Drawing:React.FC = () => {
                         inputRef={inputRef}
                         deleteInputField={deleteInputField}/>
                 </div>
-            
             </div>
-
             <div className="dark:border-[--accent-color-light] border-2 rounded-lg m-2 w-[400px]">
 
             </div>
